@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart & Payment - La Belle Vie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f8f5f2; color: #2D2D2D; }
+        .navbar { background: rgba(255,255,255,0.95); backdrop-filter: blur(30px); padding: 15px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(201,169,110,0.1); }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: #722F37; text-decoration: none; }
+        .nav-logo i { color: #C9A96E; margin-right: 10px; }
+        .cart-badge { background:#C9A96E; color:#1a1a1a; font-size:0.65rem; position:absolute; top:-5px; right:-10px; border-radius:50%; padding:2px 7px; font-weight:700; }
+        .cart-header { background: linear-gradient(135deg,#0a0a0a,#722F37); padding: 100px 0 60px; color: white; text-align: center; }
+        .cart-header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; }
+        .cart-header h1 i { color: #C9A96E; }
+        .cart-item { background:#fff; border-radius:16px; padding:1.5rem; margin-bottom:1rem; display:flex; align-items:center; gap:20px; box-shadow: 0 5px 30px rgba(0,0,0,0.04); }
+        .cart-item img { width:100px; height:100px; object-fit:cover; border-radius:12px; background:#f5f0e8; }
+        .item-name { font-family:'Playfair Display',serif; font-weight:700; font-size: 1.15rem; }
+        .item-price { color:#C9A96E; font-weight:700; font-size:1rem; }
+        .qty-control { display:flex; align-items:center; gap:0.5rem; margin-left:auto; }
+        .qty-control button { width:32px; height:32px; border-radius:50%; border:1px solid #e0d6ce; background:#fff; cursor:pointer; font-weight:600; }
+        .qty-control button:hover { background:#C9A96E; color:#fff; border-color:#C9A96E; }
+        .remove-item { color:#dc3545; background:none; border:none; cursor:pointer; font-size:1.2rem; margin-left:15px; }
+        .cart-summary { background:#fff; border-radius:16px; padding:2rem; box-shadow: 0 5px 30px rgba(0,0,0,0.04); position: sticky; top: 100px; }
+        .cart-summary h4 { font-family:'Playfair Display',serif; margin-bottom:20px; }
+        .summary-row { display:flex; justify-content:space-between; padding:8px 0; color:#555; }
+        .summary-row.grand { font-size:1.4rem; font-weight:800; color:#722F37; padding-top:15px; border-top:2px solid #722F37; margin-top:10px; }
+        .btn-pay { width:100%; padding:16px; background:linear-gradient(145deg,#C9A96E,#dbb87a); color:#1a1a1a; border:none; border-radius:50px; font-weight:700; font-size:1.1rem; cursor:pointer; margin-top:20px; transition: all 0.4s; }
+        .btn-pay:hover:not(:disabled) { transform:translateY(-3px); box-shadow: 0 15px 40px rgba(201,169,110,0.4); }
+        .btn-pay:disabled { opacity:0.6; cursor:not-allowed; }
+        .empty-cart { text-align:center; padding:4rem 2rem; background:#fff; border-radius:16px; }
+        .empty-cart i { font-size:5rem; color:#C9A96E; opacity:0.3; margin-bottom:1.5rem; }
+        .qr-modal .modal-content { border-radius:20px; border:none; }
+        .qr-modal .modal-header { background:linear-gradient(135deg,#722F37,#2d3436); color:#fff; border:none; border-radius:20px 20px 0 0; padding:20px 28px; }
+        .qr-modal .modal-title { font-family:'Playfair Display',serif; }
+        .qr-body { padding:30px; text-align:center; }
+        .qr-body h5 { font-family:'Playfair Display',serif; color:#722F37; font-weight:700; margin-bottom:10px; }
+        .qr-body .amount { font-size:2rem; font-weight:800; color:#722F37; margin:15px 0; }
+        .qr-body img { border:3px solid #C9A96E; border-radius:16px; margin:20px auto; max-width:280px; }
+        .btn-success-pay { padding:14px 40px; background:linear-gradient(145deg,#27ae60,#1e8c4c); color:#fff; border:none; border-radius:50px; font-weight:700; cursor:pointer; font-size:1rem; }
+        .btn-success-pay:hover { transform:translateY(-2px); box-shadow: 0 12px 30px rgba(39,174,96,0.4); }
+        @media (max-width: 768px) {
+            .cart-item { flex-direction:column; text-align:center; }
+            .qty-control { margin-left:0; justify-content:center; }
+            .cart-summary { position: static; margin-top:2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html" class="nav-logo"><i class="fas fa-utensils"></i> La Belle Vie</a>
+            <a href="cart.html" style="position:relative;color:#722F37;">
+                <i class="fas fa-shopping-cart" style="font-size:1.3rem;"></i>
+                <span class="cart-badge" id="cartCount">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="cart-header">
+        <div class="container">
+            <h1><i class="fas fa-shopping-cart"></i> Your Cart</h1>
+            <p style="color:rgba(255,255,255,0.75);">Review, then pay via QR</p>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div id="cartItems"></div>
+            </div>
+            <div class="col-lg-4">
+                <div class="cart-summary" id="cartSummary" style="display:none;">
+                    <h4>Order Summary</h4>
+                    <div class="summary-row"><span>Subtotal</span><span id="sumSubtotal">$0.00</span></div>
+                    <div class="summary-row"><span>Tax (8%)</span><span id="sumTax">$0.00</span></div>
+                    <div class="summary-row"><span>Service Charge (5%)</span><span id="sumService">$0.00</span></div>
+                    <div class="summary-row grand"><span>Total</span><span id="sumTotal">$0.00</span></div>
+                    <button class="btn-pay" id="payBtn">
+                        <i class="fas fa-qrcode"></i> Pay Now
+                    </button>
+                    <p style="text-align:center;color:#999;font-size:0.8rem;margin-top:12px;">
+                        <i class="fas fa-lock"></i> Secure payment via UPI / QR
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR MODAL -->
+    <div class="modal fade qr-modal" id="qrModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-qrcode"></i> Scan to Pay</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="qr-body">
+                    <h5>Order #<span id="qrOrderNumber"></span></h5>
+                    <div class="amount" id="qrAmount">$0.00</div>
+                    <img id="qrImage" src="" alt="QR Code">
+                    <p style="color:#666;font-size:0.85rem;margin-top:10px;">
+                        Scan with any UPI app (GPay, PhonePe, Paytm, BHIM)
+                    </p>
+                    <button class="btn-success-pay" id="paymentDoneBtn" style="margin-top:20px;">
+                        <i class="fas fa-check-circle"></i> I've Completed Payment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>window.API_BASE = 'api';</script>
+    <script src="js/cart.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const cartItemsEl = document.getElementById('cartItems');
+        const cartSummary = document.getElementById('cartSummary');
+        const payBtn      = document.getElementById('payBtn');
+        const qrModal     = new bootstrap.Modal(document.getElementById('qrModal'));
+
+        let currentCart = null;
+        let currentOrder = null;
+
+        async function renderCart() {
+            const data = await Cart.get();
+
+            if (!data.items || data.items.length === 0) {
+                cartItemsEl.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h3>Your cart is empty</h3>
+                        <p style="color:#666;margin-bottom:20px;">Add some delicious dishes from our menu</p>
+                        <a href="menu.html" style="padding:12px 32px;background:linear-gradient(145deg,#C9A96E,#dbb87a);color:#1a1a1a;border-radius:50px;font-weight:700;text-decoration:none;">
+                            Browse Menu
+                        </a>
+                    </div>`;
+                cartSummary.style.display = 'none';
+                return;
+            }
+
+            currentCart = data;
+            cartSummary.style.display = 'block';
+
+            cartItemsEl.innerHTML = data.items.map(item => `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.name}"
+                         onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&q=80'">
+                    <div>
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-price">$${item.price.toFixed(2)} each</div>
+                    </div>
+                    <div class="qty-control">
+                        <button data-action="dec" data-id="${item.id}">−</button>
+                        <span style="font-weight:700;min-width:24px;text-align:center;">${item.quantity}</span>
+                        <button data-action="inc" data-id="${item.id}">+</button>
+                    </div>
+                    <button class="remove-item" data-action="remove" data-id="${item.id}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+
+            const subtotal = data.total;
+            const tax = subtotal * 0.08;
+            const service = subtotal * 0.05;
+            const total = subtotal + tax + service;
+
+            document.getElementById('sumSubtotal').textContent = '$' + subtotal.toFixed(2);
+            document.getElementById('sumTax').textContent      = '$' + tax.toFixed(2);
+            document.getElementById('sumService').textContent  = '$' + service.toFixed(2);
+            document.getElementById('sumTotal').textContent    = '$' + total.toFixed(2);
+
+            cartItemsEl.querySelectorAll('[data-action]').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const id = parseInt(btn.dataset.id, 10);
+                    const action = btn.dataset.action;
+                    const item = currentCart.items.find(i => i.id === id);
+                    if (!item) return;
+
+                    let newQty = item.quantity;
+                    if (action === 'inc') newQty++;
+                    else if (action === 'dec') newQty--;
+                    else if (action === 'remove') newQty = 0;
+
+                    if (action === 'remove') await Cart.remove(id);
+                    else await Cart.update(id, newQty);
+
+                    await renderCart();
+                    Cart.refreshBadge();
+                });
+            });
+        }
+
+        // ===== PAY NOW → create order + generate QR =====
+        payBtn.addEventListener('click', async () => {
+            if (!currentCart || currentCart.items.length === 0) return;
+
+            const name  = prompt('Your name for the order:', 'Guest');
+            if (name === null) return;
+
+            payBtn.disabled = true;
+            payBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating order...';
+
+            // 1. Create order
+            const order = await Cart.checkout({
+                customer_name:  name,
+                customer_email: '',
+                customer_phone: ''
+            });
+
+            if (!order.success) {
+                Cart.toast('❌ ' + (order.error || 'Failed'), 'error');
+                payBtn.disabled = false;
+                payBtn.innerHTML = '<i class="fas fa-qrcode"></i> Pay Now';
+                return;
+            }
+
+            currentOrder = order;
+
+            // 2. Generate QR code
+            const qr = await Cart.generateQR(order.order_number);
+
+            if (!qr.success) {
+                Cart.toast('❌ QR generation failed', 'error');
+                payBtn.disabled = false;
+                payBtn.innerHTML = '<i class="fas fa-qrcode"></i> Pay Now';
+                return;
+            }
+
+            // 3. Show QR modal
+            document.getElementById('qrOrderNumber').textContent = order.order_number;
+            document.getElementById('qrAmount').textContent      = '$' + qr.amount.toFixed(2);
+            document.getElementById('qrImage').src               = qr.qr_base64 || qr.qr_url;
+
+            // Save token for verification
+            window._qrToken = qr.token;
+
+            qrModal.show();
+
+            payBtn.disabled = false;
+            payBtn.innerHTML = '<i class="fas fa-qrcode"></i> Pay Now';
+        });
+
+        // ===== PAYMENT DONE =====
+        document.getElementById('paymentDoneBtn').addEventListener('click', async function () {
+            if (!currentOrder) return;
+
+            const btn = this;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
+
+            const result = await Cart.verifyPayment(currentOrder.order_number, window._qrToken);
+
+            if (result.success) {
+                Cart.toast('✅ Payment successful!');
+                qrModal.hide();
+                setTimeout(() => {
+                    window.location.href = result.redirect;
+                }, 800);
+            } else {
+                Cart.toast('❌ ' + (result.error || 'Verification failed'), 'error');
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-check-circle"></i> I\'ve Completed Payment';
+            }
+        });
+
+        document.addEventListener('cart:updated', renderCart);
+        renderCart();
+    });
+    </script>
+</body>
+</html>

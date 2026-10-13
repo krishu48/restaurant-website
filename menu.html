@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - La Belle Vie</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Additional Menu Page Styles */
+        .page-header {
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #2d3436 0%, #722F37 100%) !important;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80') center/cover;
+            opacity: 0.12;
+            animation: heroZoomSlow 25s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoomSlow {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+
+            100% {
+                transform: scale(1.15);
+            }
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header h1 {
+            color: #ffffff !important;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .page-header h1 span {
+            color: #C9A96E !important;
+        }
+
+        .page-header p {
+            color: rgba(255, 255, 255, 0.95) !important;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-card {
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 2px;
+            background: linear-gradient(145deg, #C9A96E, #722F37);
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .menu-card:hover::before {
+            opacity: 1;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-card .card-img-top {
+            height: 220px;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .menu-card:hover .card-img-top {
+            transform: scale(1.15);
+        }
+
+        .menu-card .card-body {
+            padding: 25px 30px;
+            background: white;
+        }
+
+        .menu-card .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2D2D2D;
+            transition: color 0.3s ease;
+        }
+
+        .menu-card:hover .card-title {
+            color: #722F37;
+        }
+
+        .menu-card .card-text {
+            color: #6b6b6b;
+            font-size: 0.95rem;
+        }
+
+        .menu-card .menu-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            background: rgba(201, 169, 110, 0.15);
+            color: #C9A96E;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-card:hover .menu-tag {
+            background: #C9A96E;
+            color: #1a1a1a;
+        }
+
+        /* Image hover overlay */
+        .card-image-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image-wrapper .overlay-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            color: white;
+            font-size: 3rem;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .menu-card:hover .overlay-icon {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .card-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                145deg,
+                rgba(114, 47, 55, 0.7),
+                rgba(201, 169, 110, 0.7)
+            );
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .menu-card:hover .card-image-wrapper::after {
+            opacity: 1;
+        }
+
+        /* Cuisine badge */
+        .cuisine-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 3;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .menu-card:hover .cuisine-badge {
+            background: rgba(201, 169, 110, 0.9);
+            color: #1a1a1a;
+            transform: scale(1.05);
+        }
+
+        /* Category filter buttons */
+        .filter-btn {
+            padding: 10px 28px;
+            border-radius: 50px;
+            border: 2px solid #C9A96E;
+            background: transparent;
+            color: #722F37;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #C9A96E;
+            color: #1a1a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.8rem !important;
+            }
+
+            .page-header p {
+                font-size: 1.1rem !important;
+            }
+
+            .menu-card .card-img-top {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 2.2rem !important;
+            }
+
+            .page-header p {
+                font-size: 1rem !important;
+            }
+
+            .filter-btn {
+                padding: 8px 18px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-menu">
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container">
+
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-utensils"></i> La Belle Vie
+            </a>
+
+            <button
+                class="navbar-toggler"
+                id="navToggle"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navMenu"
+                aria-controls="navMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+
+                    <!-- MENU DROPDOWN -->
+                    <li class="nav-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="menuDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            Menus
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="menuDropdown">
+                            <li>
+                                <a class="dropdown-item" href="menu.html">
+                                    🍽️ Main Menu
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="friends-menu/index.html">
+                                    🤝 Friends Menu
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="italian-menu/index.html">
+                                    🇮🇹 Italian Menu
+                                </a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="specials.html">
+                                    ⭐ Daily Specials
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="events.html" class="nav-link">Events</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">Gallery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="reservations.html" class="nav-link">Reservations</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link">Blog</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="faq.html" class="nav-link">FAQ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ===== PAGE HEADER ===== -->
+    <section
+        class="page-header"
+        style="
+            background: linear-gradient(135deg, #2d3436 0%, #722F37 100%);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+        "
+    >
+        <div
+            class="container"
+            style="position: relative; z-index: 2;"
+        >
+
+            <h1
+                class="scroll-3d"
+                style="
+                    font-size: 4rem;
+                    font-weight: 900;
+                    font-family: 'Playfair Display', serif;
+                    color: #ffffff;
+                "
+            >
+                <span style="color:#C9A96E;">Our</span> Menu
+            </h1>
+
+            <p
+                class="scroll-3d"
+                style="
+                    font-size: 1.4rem;
+                    color: rgba(255,255,255,0.95) !important;
+                    max-width: 600px;
+                    margin: 0 auto;
+                    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+                "
+            >
+                Explore our diverse menu featuring cuisine from 10 countries
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- ===== MENU GRID ===== -->
+    <section class="py-5">
+
+        <div class="container">
+
+            <!-- Category Filters -->
+            <div class="text-center mb-5 scroll-3d">
+
+                <button
+                    class="filter-btn active"
+                    data-filter="all"
+                >
+                    🌍 All
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="europe"
+                >
+                    🇪🇺 Europe
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="asia"
+                >
+                    🌏 Asia
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="mediterranean"
+                >
+                    🌊 Mediterranean
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="special"
+                >
+                    ⭐ Special
+                </button>
+
+            </div>
+
+
+            <div class="row g-4" id="menuGrid">
+
+                <!-- Italian Menu -->
+                <div
+                    class="col-md-6 col-lg-4 scroll-3d"
+                    data-category="europe special"
+                >
+                    <a
+                        href="italian-menu/index.html"
+                        class="text-decoration-none"
+                    >
+
+                        <div class="menu-card card hover-3d shadow-sm">
+
+                            <div class="card-image-wrapper">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=250&fit=crop&crop=center"
+                                    class="card-img-top"
+                                    alt="Italian Menu"
+                                >
+
+                                <span class="cuisine-badge">
+                                    ⭐ Popular
+                                </span>
+
+                                <div class="overlay-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🇮🇹 Italian Menu
+                                </h5>
+
+                                <p class="card-text">
+                                    Authentic Italian dishes from pasta to pizza
+                                </p>
+
+                                <span class="menu-tag">
+                                    View Menu →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+                <!-- Friends Menu -->
+                <div
+                    class="col-md-6 col-lg-4 scroll-3d"
+                    style="animation-delay:0.05s"
+                    data-category="special"
+                >
+                    <a
+                        href="friends-menu/index.html"
+                        class="text-decoration-none"
+                    >
+
+                        <div class="menu-card card hover-3d shadow-sm">
+
+                            <div class="card-image-wrapper">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=250&fit=crop&crop=center"
+                                    class="card-img-top"
+                                    alt="Friends Menu"
+                                >
+
+                                <span class="cuisine-badge">
+                                    🤝 Group
+                                </span>
+
+                                <div class="overlay-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🤝 Friends Menu
+                                </h5>
+
+                                <p class="card-text">
+                                    Shareable platters and group dining options
+                                </p>
+
+                                <span class="menu-tag">
+                                    View Menu →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+                <!-- Italy -->
+                <div
+                    class="col-md-6 col-lg-4 scroll-3d"
+                    style="animation-delay:0.1s"
+                    data-category="europe"
+                >
+                    <a
+                        href="country-menus/italy/index.html"
+                        class="text-decoration-none"
+                    >
+
+                        <div class="menu-card card hover-3d shadow-sm">
+
+                            <div class="card-image-wrapper">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=250&fit=crop&crop=center"
+                                    class="card-img-top"
+                                    alt="Italy Cuisine"
+                                >
+
+                                <span class="cuisine-badge">
+                                    🇮🇹 Italy
+                                </span>
+
+                                <div class="overlay-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🇮🇹 Italian Cuisine
+                                </h5>
+
+                                <p class="card-text">
+                                    Regional specialties from Italy
+                                </p>
+
+                                <span class="menu-tag">
+                                    View Menu →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+                <!-- France -->
+                <div
+                    class="col-md-6 col-lg-4 scroll-3d"
+                    style="animation-delay:0.15s"
+                    data-category="europe"
+                >
+                    <a
+                        href="country-menus/france/index.html"
+                        class="text-decoration-none"
+                    >
+
+                        <div class="menu-card card hover-3d shadow-sm">
+
+                            <div class="card-image-wrapper">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=400&h=250&fit=crop&crop=center"
+                                    class="card-img-top"
+                                    alt="France Cuisine"
+                                >
+
+                                <span class="cuisine-badge">
+                                    🇫🇷 France
+                                </span>
+
+                                <div class="overlay-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🇫🇷 French Cuisine
+                                </h5>
+
+                                <p class="card-text">
+                                    Classic French dishes and pastries
+                                </p>
+
+                                <span class="menu-tag">
+                                    View Menu →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+                <!-- Japan -->
+                <div
+                    class="col-md-6 col-lg-4 scroll-3d"
+                    style="animation-delay:0.2s"
+                    data-category="asia special"
+                >
+                    <a
+                        href="country-menus/japan/index.html"
+                        class="text-decoration-none"
+                    >
+
+                        <div class="menu-card card hover-3d shadow-sm">
+
+                            <div class="card-image-wrapper">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&h=250&fit=crop&crop=center"
+                                    class="card-img-top"
+                                    alt="Japan Cuisine"
+                                >
+
+                                <span class="cuisine-badge">
+                                    ⭐ Popular
+                                </span>
+
+                                <div class="overlay-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🇯🇵 Japanese Cuisine
+                                </h5>
+
+                                <p class="card-text">
+                                    Sushi, ramen, and more
+                                </p>
+
+                                <span class="menu-tag">
+                                    View Menu →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+                <!-- India -->
+                <div
+                    class="col-md-6 col-lg-4 scroll-3d"
+                    style="animation-delay:0.25s"
+                    data-category="asia"
+                >
+                    <a
+                        href="country-menus/india/index.html"
+                        class="text-decoration-none"
+                    >
+
+                        <div class="menu-card card hover-3d shadow-sm">
+
+                            <div class="card-image-wrapper">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=250&fit=crop&crop=center"
+                                    class="card-img-top"
+                                    alt="India Cuisine"
+                                >
+
+                                <span class="cuisine-badge">
+                                    🇮🇳 India
+                                </span>
+
+                                <div class="overlay-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🇮🇳 Indian Cuisine
+                                </h5>
+
+                                <p class="card-text">
+                                    Spices and flavors of India
+                                </p>
+
+                                <span class="menu-tag">
+                                    View Menu →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+                <!-- Russia -->
+                <div
+                    class="col-md-6 col-lg-4 scroll-3d"
+                    style="animation-delay:0.3s"
+                    data-category="europe"
+                >
+                    <a
+                        href="country-menus/moscow/index.html"
+                        class="text-decoration-none"
+                    >
+
+                        <div class="menu-card card hover-3d shadow-sm">
+
+                            <div class="card-image-wrapper">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=250&fit=crop&crop=center"
+                                    class="card-img-top"
+                                    alt="Russian Cuisine"
+                                >
+
+                                <span class="cuisine-badge">
+                                    🇷🇺 Russia
+                                </span>
+
+                                <div class="overlay-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🇷🇺 Russian Cuisine
+                                </h5>
+
+                                <p class="card-text">
+                                    Hearty Russian specialties
+                                </p>
+
+                                <span class="menu-tag">
+                                    View Menu →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+                <!-- Thailand -->
+                <div
+                    class="col-md-6 col-lg-4 scroll-3d"
+                    style="animation-delay:0.35s"
+                    data-category="asia"
+                >
+                    <a
+                        href="country-menus/thailand/index.html"
+                        class="text-decoration-none"
+                    >
+
+                        <div class="menu-card card hover-3d shadow-sm">
+
+                            <div class="card-image-wrapper">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1559314809-0d155014e29e?w=400&h=250&fit=crop&crop=center"
+                                    class="card-img-top"
+                                    alt="Thai Cuisine"
+                                >
+
+                                <span class="cuisine-badge">
+                                    🇹🇭 Thailand
+                                </span>
+
+                                <div class="overlay-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🇹🇭 Thai Cuisine
+                                </h5>
+
+                                <p class="card-text">
+                                    Bold and aromatic Thai dishes
+                                </p>
+
+                                <span class="menu-tag">
+                                    View Menu →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+                <!-- Greece -->
+                <div
+                    class="col-md-6 col-lg-4 scroll-3d"
+                    style="animation-delay:0.4s"
+                    data-category="mediterranean"
+                >
+                    <a
+                        href="country-menus/greece/index.html"
+                        class="text-decoration-none"
+                    >
+
+                        <div class="menu-card card hover-3d shadow-sm">
+
+                            <div class="card-image-wrapper">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1547573854-74d2a71d0826?w=400&h=250&fit=crop&crop=center"
+                                    class="card-img-top"
+                                    alt="Greek Cuisine"
+                                >
+
+                                <span class="cuisine-badge">
+                                    🇬🇷 Greece
+                                </span>
+
+                                <div class="overlay-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🇬🇷 Greek Cuisine
+                                </h5>
+
+                                <p class="card-text">
+                                    Mediterranean flavors of Greece
+                                </p>
+
+                                <span class="menu-tag">
+                                    View Menu →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+                <!-- Spain -->
+                <div
+                    class="col-md-6 col-lg-4 scroll-3d"
+                    style="animation-delay:0.45s"
+                    data-category="mediterranean"
+                >
+                    <a
+                        href="country-menus/spain/index.html"
+                        class="text-decoration-none"
+                    >
+
+                        <div class="menu-card card hover-3d shadow-sm">
+
+                            <div class="card-image-wrapper">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?w=400&h=250&fit=crop&crop=center"
+                                    class="card-img-top"
+                                    alt="Spanish Cuisine"
+                                >
+
+                                <span class="cuisine-badge">
+                                    🇪🇸 Spain
+                                </span>
+
+                                <div class="overlay-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🇪🇸 Spanish Cuisine
+                                </h5>
+
+                                <p class="card-text">
+                                    Tapas and Spanish delights
+                                </p>
+
+                                <span class="menu-tag">
+                                    View Menu →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+                <!-- Turkey -->
+                <div
+                    class="col-md-6 col-lg-4 scroll-3d"
+                    style="animation-delay:0.5s"
+                    data-category="mediterranean"
+                >
+                    <a
+                        href="country-menus/turkey/index.html"
+                        class="text-decoration-none"
+                    >
+
+                        <div class="menu-card card hover-3d shadow-sm">
+
+                            <div class="card-image-wrapper">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=250&fit=crop&crop=center"
+                                    class="card-img-top"
+                                    alt="Turkish Cuisine"
+                                >
+
+                                <span class="cuisine-badge">
+                                    🇹🇷 Turkey
+                                </span>
+
+                                <div class="overlay-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🇹🇷 Turkish Cuisine
+                                </h5>
+
+                                <p class="card-text">
+                                    Rich Turkish flavors
+                                </p>
+
+                                <span class="menu-tag">
+                                    View Menu →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+                <!-- China -->
+                <div
+                    class="col-md-6 col-lg-4 scroll-3d"
+                    style="animation-delay:0.55s"
+                    data-category="asia"
+                >
+                    <a
+                        href="country-menus/china/index.html"
+                        class="text-decoration-none"
+                    >
+
+                        <div class="menu-card card hover-3d shadow-sm">
+
+                            <div class="card-image-wrapper">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&h=250&fit=crop&crop=center"
+                                    class="card-img-top"
+                                    alt="Chinese Cuisine"
+                                >
+
+                                <span class="cuisine-badge">
+                                    🇨🇳 China
+                                </span>
+
+                                <div class="overlay-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    🇨🇳 Chinese Cuisine
+                                </h5>
+
+                                <p class="card-text">
+                                    Authentic Chinese dishes
+                                </p>
+
+                                <span class="menu-tag">
+                                    View Menu →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section scroll-3d">
+
+        <div class="container">
+
+            <h2>
+                Ready to <span>Dine</span>?
+            </h2>
+
+            <p>
+                Book your table and experience our diverse menu
+            </p>
+
+            <a
+                href="reservations.html"
+                class="btn btn-gold btn-lg"
+            >
+                <i class="fas fa-calendar-check"></i>
+                Reserve Now
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row">
+
+                <!-- About -->
+                <div class="col-lg-4 mb-4">
+
+                    <h4>
+                        <i class="fas fa-utensils"></i>
+                        La Belle Vie
+                    </h4>
+
+                    <p>
+                        Fine dining restaurant offering the best cuisine
+                        from 10 countries around the world.
+                    </p>
+
+                    <div class="social-icons">
+
+                        <a href="#">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+
+                    <h4>Quick Links</h4>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="about.html">About</a>
+                        </li>
+
+                        <li>
+                            <a href="menu.html">Menu</a>
+                        </li>
+
+                        <li>
+                            <a href="specials.html">Specials</a>
+                        </li>
+
+                        <li>
+                            <a href="events.html">Events</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Pages -->
+                <div class="col-lg-2 col-md-6 mb-4">
+
+                    <h4>Pages</h4>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="gallery.html">Gallery</a>
+                        </li>
+
+                        <li>
+                            <a href="reservations.html">Reservations</a>
+                        </li>
+
+                        <li>
+                            <a href="blog.html">Blog</a>
+                        </li>
+
+                        <li>
+                            <a href="faq.html">FAQ</a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">Contact</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Newsletter -->
+                <div class="col-lg-4 mb-4">
+
+                    <h4>Newsletter</h4>
+
+                    <p>
+                        Subscribe for exclusive offers and updates
+                    </p>
+
+                    <form
+                        id="newsletterForm"
+                        class="d-flex"
+                    >
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            placeholder="Your email"
+                            required
+                        >
+
+                        <button
+                            type="submit"
+                            class="btn btn-gold ms-2"
+                        >
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; 2026 La Belle Vie.
+                    All rights reserved.
+                    Crafted with
+                    <i
+                        class="fas fa-heart"
+                        style="color:#C9A96E;"
+                    ></i>
+                </p>
+
+                <p class="footer-links-bottom">
+
+                    <a href="privacy.html">
+                        Privacy Policy
+                    </a>
+
+                    |
+
+                    <a href="terms.html">
+                        Terms & Conditions
+                    </a>
+
+                    |
+
+                    <a href="sitemap.html">
+                        Sitemap
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="js/script.js"></script>
+
+
+    <!-- ===== FILTER FUNCTIONALITY ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const menuItems = document.querySelectorAll('#menuGrid .col-md-6');
+
+            filterBtns.forEach(function (btn) {
+
+                btn.addEventListener('click', function () {
+
+                    /* Remove active class */
+                    filterBtns.forEach(function (button) {
+                        button.classList.remove('active');
+                    });
+
+                    /* Add active class to clicked button */
+                    this.classList.add('active');
+
+                    /* Get selected category */
+                    const filter = this.dataset.filter;
+
+                    /* Filter menu items */
+                    menuItems.forEach(function (item) {
+
+                        const categories = item.dataset.category || '';
+
+                        if (
+                            filter === 'all' ||
+                            categories.includes(filter)
+                        ) {
+
+                            item.style.display = 'block';
+
+                            item.style.animation =
+                                'fadeInUp 0.6s ease forwards';
+
+                        } else {
+
+                            item.style.display = 'none';
+
+                        }
+
+                    });
+
+                });
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,762 @@
+/* ========================================
+   PREMIUM RESTAURANT WEBSITE - CSS
+   Bootstrap 5 + Custom Animations
+   ======================================== */
+
+/* ----- IMPORT FONTS ----- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ----- CSS VARIABLES ----- */
+:root {
+    --primary: #722F37;
+    --primary-dark: #5a242a;
+    --primary-light: #8a3f47;
+    --secondary: #C9A96E;
+    --secondary-light: #dbb87a;
+    --accent: #FFF8F0;
+    --dark: #1a1a1a;
+    --text: #2D2D2D;
+    --text-light: #6b6b6b;
+    --white: #ffffff;
+    --shadow: 0 10px 40px rgba(0,0,0,0.1);
+    --shadow-hover: 0 20px 60px rgba(0,0,0,0.15);
+    --radius: 16px;
+    --radius-sm: 8px;
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ----- RESET ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    overflow-x: hidden;
+    background: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* ========================================
+   3D SCROLL ANIMATIONS
+   ======================================== */
+.scroll-3d {
+    opacity: 0;
+    transform: translateY(50px) rotateX(10deg);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    perspective: 1000px;
+}
+
+.scroll-3d.visible {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+}
+
+.scroll-3d-left {
+    opacity: 0;
+    transform: translateX(-60px) rotateY(15deg);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    perspective: 1000px;
+}
+
+.scroll-3d-left.visible {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+}
+
+.scroll-3d-right {
+    opacity: 0;
+    transform: translateX(60px) rotateY(-15deg);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    perspective: 1000px;
+}
+
+.scroll-3d-right.visible {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+}
+
+.scroll-3d-scale {
+    opacity: 0;
+    transform: scale(0.8) rotateZ(5deg);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    perspective: 1000px;
+}
+
+.scroll-3d-scale.visible {
+    opacity: 1;
+    transform: scale(1) rotateZ(0);
+}
+
+/* ========================================
+   3D HOVER EFFECTS
+   ======================================== */
+.hover-3d {
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.hover-3d:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+
+.hover-3d-glow:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 40px rgba(201, 169, 110, 0.3);
+}
+
+.hover-3d-rotate {
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    perspective: 1000px;
+}
+
+.hover-3d-rotate:hover {
+    transform: rotateY(10deg) rotateX(5deg) scale(1.03);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+.navbar {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    padding: 16px 0;
+    box-shadow: 0 2px 30px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    background: rgba(255,255,255,0.98);
+    box-shadow: 0 4px 40px rgba(0,0,0,0.08);
+}
+
+.nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.nav-logo i {
+    color: var(--secondary);
+    margin-right: 8px;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text) !important;
+    transition: var(--transition);
+    position: relative;
+    padding: 8px 16px !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--secondary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 60%;
+}
+
+.nav-link:hover {
+    color: var(--primary) !important;
+}
+
+.nav-link.active {
+    color: var(--primary) !important;
+    font-weight: 600;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://picsum.photos/seed/restaurant/1920/1080') center/cover;
+    opacity: 0.4;
+    animation: heroZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+    padding: 100px 0;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(201, 169, 110, 0.2);
+    border: 1px solid var(--secondary);
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: var(--secondary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero h1 span {
+    color: var(--secondary);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    opacity: 0.85;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+
+.hero .btn {
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition-bounce);
+    margin: 0 8px;
+}
+
+.btn-primary {
+    background: var(--secondary);
+    color: var(--dark);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: var(--secondary-light);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(201, 169, 110, 0.3);
+    color: var(--dark);
+}
+
+.btn-outline-light {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.btn-outline-light:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--white);
+    transform: translateY(-3px);
+    color: var(--white);
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: 800;
+    font-family: 'Playfair Display', serif;
+    color: var(--secondary);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* ========================================
+   SECTION TITLES
+   ======================================== */
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 12px;
+    font-family: 'Playfair Display', serif;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+.btn {
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition-bounce);
+    font-size: 1rem;
+}
+
+.btn-gold {
+    background: var(--secondary);
+    color: var(--dark);
+}
+
+.btn-gold:hover {
+    background: var(--secondary-light);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(201, 169, 110, 0.3);
+    color: var(--dark);
+}
+
+.btn-outline-gold {
+    background: transparent;
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+}
+
+.btn-outline-gold:hover {
+    background: var(--secondary);
+    color: var(--dark);
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   COUNTRY MENU GRID
+   ======================================== */
+.country-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.country-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition-bounce);
+    text-decoration: none;
+    color: var(--text);
+}
+
+.country-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+.country-card .card-image {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.country-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.country-card:hover .card-image img {
+    transform: scale(1.08);
+}
+
+.country-card .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(114, 47, 55, 0.8), rgba(201, 169, 110, 0.8));
+    opacity: 0;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.country-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.country-card .card-overlay i {
+    font-size: 3rem;
+    color: var(--white);
+}
+
+.country-card .card-body {
+    padding: 24px;
+}
+
+.country-card .card-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
+
+.country-card .card-body p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.country-card .card-body .flag {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* ========================================
+   FEATURES
+   ======================================== */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 40px 24px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition-bounce);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.feature-card .icon {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 16px;
+}
+
+.feature-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* ========================================
+   TESTIMONIALS
+   ======================================== */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--secondary);
+    transition: var(--transition);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.testimonial-card .stars {
+    color: #f39c12;
+    margin-bottom: 12px;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: 16px;
+}
+
+.testimonial-card .author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.testimonial-card .author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.testimonial-card .author strong {
+    display: block;
+    font-size: 1rem;
+}
+
+.testimonial-card .author span {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    padding: 80px 0;
+    text-align: center;
+    color: var(--white);
+}
+
+.cta-section h2 {
+    font-size: 2.8rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 16px;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+/* ========================================
+   COUNTRY DETAIL PAGES
+   ======================================== */
+.country-hero {
+    padding: 80px 0 60px;
+    color: var(--white);
+    position: relative;
+}
+
+.country-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.country-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    font-family: 'Playfair Display', serif;
+}
+
+.country-hero .flag-big {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.country-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+}
+
+/* ========================================
+   PAGE HEADER
+   ======================================== */
+.page-header {
+    padding: 60px 0 40px;
+    background: var(--accent);
+    text-align: center;
+}
+
+.page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+}
+
+.page-header p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+    background: #1a1a1a;
+    color: #b0b0b0;
+    padding: 60px 0 30px;
+}
+
+.footer h4 {
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 16px;
+}
+
+.footer a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer a:hover {
+    color: var(--secondary);
+}
+
+.footer .social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.footer .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    color: var(--white);
+    transition: var(--transition);
+}
+
+.footer .social-icons a:hover {
+    background: var(--secondary);
+    color: var(--dark);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 24px;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   PAGE-SPECIFIC COLORS
+   ======================================== */
+/* Italy - Red/Green */
+.page-italy .country-hero { background: linear-gradient(135deg, #d4213b 0%, #008c45 100%); }
+.page-italy .btn-primary { background: #d4213b; border-color: #d4213b; }
+.page-italy .btn-primary:hover { background: #b01a2f; border-color: #b01a2f; }
+
+/* France - Blue/White/Red */
+.page-france .country-hero { background: linear-gradient(135deg, #002395 0%, #ffffff 50%, #ed2939 100%); }
+.page-france .btn-primary { background: #002395; border-color: #002395; }
+.page-france .btn-primary:hover { background: #001a6b; border-color: #001a6b; }
+
+/* Japan - Red/White */
+.page-japan .country-hero { background: linear-gradient(135deg, #bc002d 0%, #ffffff 100%); }
+.page-japan .btn-primary { background: #bc002d; border-color: #bc002d; }
+.page-japan .btn-primary:hover { background: #990024; border-color: #990024; }
+
+/* India - Saffron/Green */
+.page-india .country-hero { background: linear-gradient(135deg, #ff9933 0%, #138808 100%); }
+.page-india .btn-primary { background: #ff9933; border-color: #ff9933; }
+.page-india .btn-primary:hover { background: #e08500; border-color: #e08500; }
+
+/* Moscow/Russia - Red/Blue */
+.page-moscow .country-hero { background: linear-gradient(135deg, #d52b1e 0%, #0039a6 100%); }
+.page-moscow .btn-primary { background: #d52b1e; border-color: #d52b1e; }
+.page-moscow .btn-primary:hover { background: #b02217; border-color: #b02217; }
+
+/* Thailand - Red/Blue/White */
+.page-thailand .country-hero { background: linear-gradient(135deg, #ed1c24 0%, #ffffff 50%, #2d2a4a 100%); }
+.page-thailand .btn-primary { background: #ed1c24; border-color: #ed1c24; }
+.page-thailand .btn-primary:hover { background: #c9151c; border-color: #c9151c; }
+
+/* Greece - Blue/White */
+.page-greece .country-hero { background: linear-gradient(135deg, #0d5eaf 0%, #ffffff 100%); }
+.page-greece .btn-primary { background: #0d5eaf; border-color: #0d5eaf; }
+.page-greece .btn-primary:hover { background: #0a4a8a; border-color: #0a4a8a; }
+
+/* Spain - Red/Gold */
+.page-spain .country-hero { background: linear-gradient(135deg, #c60b1e 0%, #ffc400 100%); }
+.page-spain .btn-primary { background: #c60b1e; border-color: #c60b1e; }
+.page-spain .btn-primary:hover { background: #a00917; border-color: #a00917; }
+
+/* Turkey - Red/White */
+.page-turkey .country-hero { background: linear-gradient(135deg, #e30a17 0%, #ffffff 100%); }
+.page-turkey .btn-primary { background: #e30a17; border-color: #e30a17; }
+.page-turkey .btn-primary:hover { background: #b90813; border-color: #b90813; }
+
+/* China - Red/Gold */
+.page-china .country-hero { background: linear-gradient(135deg, #de2910 0%, #ffde00 100%); }
+.page-china .btn-primary { background: #de2910; border-color: #de2910; }
+.page-china .btn-primary:hover { background: #b8220d; border-color: #b8220d; }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero-stats { gap: 30px; flex-wrap: wrap; }
+    .stat-number { font-size: 2rem; }
+    .section-title { font-size: 2rem; }
+    .country-hero h1 { font-size: 2.2rem; }
+    .country-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+    .hero .btn { margin: 8px 0; width: 100%; }
+}
+
+@media (max-width: 576px) {
+    .hero h1 { font-size: 2rem; }
+    .country-grid { grid-template-columns: 1fr; }
+}

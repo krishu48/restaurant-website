@@ -1,0 +1,2244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Belle Vie - Premium Fine Dining</title>
+
+    <!-- Preconnect for speed -->
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           REMOVE GOOGLE TRANSLATE POPUP
+           ======================================== */
+        .goog-te-banner-frame,
+        #goog-gt-tt,
+        .goog-te-balloon-frame,
+        .goog-tooltip,
+        .goog-tooltip:hover,
+        iframe.goog-te-banner-frame,
+        body > .skiptranslate,
+        .skiptranslate,
+        #google_translate_element,
+        .VIpgJd-ZVi9od-ORHb-OEVmcd,
+        .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+        .goog-te-gadget,
+        .goog-te-gadget-simple,
+        .goog-te-menu-value,
+        .goog-te-menu-frame,
+        .goog-te-combo {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            height: 0 !important;
+            width: 0 !important;
+        }
+
+        .goog-text-highlight {
+            background: none !important;
+            box-shadow: none !important;
+        }
+
+        body {
+            top: 0 !important;
+            position: static !important;
+        }
+
+        html {
+            margin-top: 0 !important;
+        }
+
+        /* ========================================
+           ULTRA-PREMIUM HOME PAGE STYLES
+           ======================================== */
+
+        /* ----- RESET & BASE ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2D2D2D;
+            overflow-x: hidden;
+            background: #ffffff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection {
+            background: #C9A96E;
+            color: #1a1a1a;
+        }
+
+        /* ----- GLASSMORPHISM NAVBAR ----- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            padding: 15px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.08);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px 0;
+            box-shadow: 0 4px 60px rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #722F37;
+            text-decoration: none;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .nav-logo i {
+            color: #C9A96E;
+            margin-right: 10px;
+            font-size: 1.6rem;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .nav-logo:hover {
+            color: #5a242a;
+            transform: scale(1.02);
+        }
+
+        .nav-logo:hover i {
+            transform: rotate(-20deg) scale(1.15);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #2D2D2D !important;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            padding: 8px 20px !important;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            width: 0;
+            height: 2.5px;
+            background: linear-gradient(90deg, #C9A96E, #f0d080);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 60%;
+        }
+
+        .nav-link:hover {
+            color: #722F37 !important;
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background: linear-gradient(145deg, #C9A96E, #dbb87a);
+            color: #1a1a1a;
+            border: none;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 20px rgba(201, 169, 110, 0.3);
+            font-size: 0.9rem;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(201, 169, 110, 0.4);
+            color: #1a1a1a;
+        }
+
+        .cart-badge {
+            background: #C9A96E;
+            color: #1a1a1a;
+            font-size: 0.65rem;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-weight: 700;
+        }
+
+        /* ----- HERO SECTION - CINEMATIC ----- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 40%, #2d0f0f 70%, #722F37 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80') center/cover;
+            opacity: 0.12;
+            animation: heroZoomSlow 30s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoomSlow {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1.2); }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 30% 50%, rgba(0,0,0,0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 50%, rgba(0,0,0,0.3) 0%, transparent 60%),
+                linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 169, 110, 0.12);
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: #C9A96E;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            font-weight: 600;
+            animation: badgePulse 4s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201, 169, 110, 0.05) 0%, transparent 60%);
+            animation: shimmerRotate 8s linear infinite;
+        }
+
+        @keyframes shimmerRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(201, 169, 110, 0.05); }
+            50% { box-shadow: 0 0 60px rgba(201, 169, 110, 0.15); }
+        }
+
+        .hero h1 {
+            font-size: 5.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.05;
+            color: #ffffff !important;
+            text-shadow: 0 2px 40px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 .line1 {
+            display: block;
+            font-size: 2rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 5px;
+        }
+
+        .hero h1 .line2 {
+            display: block;
+            font-size: 5.5rem;
+            font-weight: 900;
+        }
+
+        .hero h1 .line2 span {
+            background: linear-gradient(135deg, #C9A96E, #f0d080, #dbb87a, #C9A96E);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientFlow 4s ease-in-out infinite;
+            position: relative;
+            display: inline-block;
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero h1 .decorative-line {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: rgba(201, 169, 110, 0.5);
+            display: block;
+            margin-top: -10px;
+            animation: decorativeFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes decorativeFloat {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-8px) scale(1.05); opacity: 0.8; }
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.85) !important;
+            max-width: 650px;
+            margin: 0 auto 40px;
+            line-height: 2;
+            font-weight: 300;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero .btn {
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin: 0 10px;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(145deg, #C9A96E, #dbb87a);
+            color: #1a1a1a;
+            border: none;
+            box-shadow: 0 8px 40px rgba(201, 169, 110, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(201, 169, 110, 0.4);
+            color: #1a1a1a;
+        }
+
+        .btn-outline-light {
+            background: rgba(255,255,255,0.05);
+            color: #ffffff;
+            border: 1.5px solid rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline-light:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.4);
+            transform: translateY(-6px) scale(1.04);
+            color: #ffffff;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            margin-top: 60px;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 4rem;
+            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            color: #C9A96E;
+            line-height: 1;
+            background: linear-gradient(145deg, #C9A96E, #f0d080, #C9A96E);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: goldShimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes goldShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+
+        /* ----- FLOATING PARTICLES ----- */
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(201, 169, 110, 0.2);
+            border-radius: 50%;
+            animation: floatParticle 20s infinite linear;
+        }
+
+        .particle:nth-child(1) { left: 5%; animation-duration: 25s; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 12%; animation-duration: 30s; animation-delay: 3s; width: 6px; height: 6px; }
+        .particle:nth-child(3) { left: 20%; animation-duration: 22s; animation-delay: 5s; }
+        .particle:nth-child(4) { left: 28%; animation-duration: 28s; animation-delay: 1s; width: 8px; height: 8px; }
+        .particle:nth-child(5) { left: 35%; animation-duration: 18s; animation-delay: 7s; }
+        .particle:nth-child(6) { left: 42%; animation-duration: 32s; animation-delay: 2s; width: 5px; height: 5px; }
+        .particle:nth-child(7) { left: 50%; animation-duration: 24s; animation-delay: 4s; }
+        .particle:nth-child(8) { left: 58%; animation-duration: 20s; animation-delay: 6s; width: 7px; height: 7px; }
+        .particle:nth-child(9) { left: 65%; animation-duration: 26s; animation-delay: 1s; }
+        .particle:nth-child(10) { left: 72%; animation-duration: 22s; animation-delay: 8s; width: 4px; height: 4px; }
+        .particle:nth-child(11) { left: 80%; animation-duration: 30s; animation-delay: 3s; }
+        .particle:nth-child(12) { left: 88%; animation-duration: 19s; animation-delay: 5s; width: 6px; height: 6px; }
+        .particle:nth-child(13) { left: 95%; animation-duration: 27s; animation-delay: 7s; }
+        .particle:nth-child(14) { left: 15%; animation-duration: 35s; animation-delay: 2s; width: 9px; height: 9px; }
+        .particle:nth-child(15) { left: 75%; animation-duration: 20s; animation-delay: 6s; }
+
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(720deg) scale(1.5); opacity: 0; }
+        }
+
+        /* ----- 3D FLOATING ORBS ----- */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            pointer-events: none;
+            animation: orbFloat 15s ease-in-out infinite alternate;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: #C9A96E;
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: #722F37;
+            bottom: -50px;
+            left: -50px;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 200px;
+            height: 200px;
+            background: #f0d080;
+            top: 50%;
+            right: 20%;
+            animation-delay: -10s;
+            opacity: 0.08;
+        }
+
+        @keyframes orbFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -30px) scale(1.1); }
+            66% { transform: translate(-30px, 50px) scale(0.9); }
+            100% { transform: translate(20px, 20px) scale(1.05); }
+        }
+
+        /* ----- SECTION TITLES ----- */
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+        }
+
+        .section-title .decorative {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #C9A96E;
+            display: block;
+            margin-top: -12px;
+            animation: decorativeFloat 6s ease-in-out infinite;
+        }
+
+        .section-title .highlight {
+            background: linear-gradient(135deg, #C9A96E, #f0d080, #C9A96E);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientFlow 4s ease-in-out infinite;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #C9A96E, #f0d080, #C9A96E);
+            margin: 25px auto 0;
+            border-radius: 4px;
+            animation: titleLinePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes titleLinePulse {
+            0%, 100% { width: 80px; opacity: 1; }
+            50% { width: 120px; opacity: 0.7; }
+        }
+
+        .section-title::before {
+            content: '✦';
+            display: block;
+            color: #C9A96E;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            animation: starPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes starPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+            50% { transform: scale(1.4) rotate(180deg); opacity: 1; }
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b6b6b;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* ----- COUNTRY CARDS ----- */
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .country-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.04);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+            color: #2D2D2D;
+            border: 1px solid rgba(0,0,0,0.03);
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .country-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(145deg, #C9A96E, #722F37);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: all 0.6s ease;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .country-card:hover::before {
+            opacity: 1;
+        }
+
+        .country-card:hover {
+            transform: translateY(-20px) scale(1.03) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.12), 0 0 60px rgba(201, 169, 110, 0.05);
+        }
+
+        .country-card .card-image {
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+        }
+
+        .country-card .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .country-card:hover .card-image img {
+            transform: scale(1.25);
+        }
+
+        .country-card .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(145deg, rgba(114, 47, 55, 0.7), rgba(201, 169, 110, 0.7));
+            opacity: 0;
+            transition: all 0.6s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .country-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .country-card .card-overlay i {
+            font-size: 4rem;
+            color: #ffffff;
+            transform: scale(0) rotate(-45deg);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .country-card:hover .card-overlay i {
+            transform: scale(1) rotate(0deg);
+        }
+
+        .country-card .card-body {
+            padding: 28px 30px;
+            position: relative;
+            background: #ffffff;
+        }
+
+        .country-card .card-body .flag {
+            font-size: 2.8rem;
+            display: block;
+            margin-bottom: 10px;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .country-card:hover .card-body .flag {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .country-card .card-body .divider {
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #C9A96E, #f0d080);
+            margin: 12px 0;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-radius: 4px;
+        }
+
+        .country-card:hover .card-body .divider {
+            width: 70px;
+        }
+
+        .country-card .card-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+            transition: all 0.4s ease;
+        }
+
+        .country-card:hover .card-body h3 {
+            color: #722F37;
+        }
+
+        .country-card .card-body p {
+            color: #6b6b6b;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .country-card .card-body .card-tag {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 6px 20px;
+            background: rgba(201, 169, 110, 0.08);
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #722F37;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid rgba(201, 169, 110, 0.15);
+        }
+
+        .country-card:hover .card-body .card-tag {
+            background: #C9A96E;
+            color: #1a1a1a;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.2);
+        }
+
+        /* ----- FEATURE CARDS ----- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 35px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 50px 30px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.04);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid rgba(0,0,0,0.02);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #C9A96E, #f0d080, #C9A96E);
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            border-color: rgba(201, 169, 110, 0.1);
+        }
+
+        .feature-card .icon {
+            font-size: 3.5rem;
+            color: #C9A96E;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: rgba(201, 169, 110, 0.06);
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            border-radius: 50%;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .feature-card .icon::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(201, 169, 110, 0.15);
+            animation: spin 30s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .feature-card:hover .icon {
+            transform: scale(1.1) rotate(-10deg);
+            background: rgba(201, 169, 110, 0.12);
+        }
+
+        .feature-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #6b6b6b;
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        /* ----- TESTIMONIALS ----- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 35px;
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.04);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-family: 'Georgia', serif;
+            font-size: 8rem;
+            position: absolute;
+            top: -20px;
+            right: 15px;
+            color: rgba(201, 169, 110, 0.05);
+            line-height: 1;
+        }
+
+        .testimonial-card::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            height: 70%;
+            width: 4px;
+            background: linear-gradient(180deg, #C9A96E, #f0d080, #C9A96E);
+            border-radius: 0 4px 4px 0;
+            transition: all 0.6s ease;
+        }
+
+        .testimonial-card:hover::after {
+            height: 80%;
+            top: 10%;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        .testimonial-card .stars {
+            color: #f39c12;
+            margin-bottom: 14px;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            line-height: 2;
+            color: #2D2D2D;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .testimonial-card .author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(201, 169, 110, 0.15);
+            transition: all 0.5s ease;
+        }
+
+        .testimonial-card:hover .author img {
+            border-color: #C9A96E;
+            transform: scale(1.05);
+        }
+
+        .testimonial-card .author strong {
+            display: block;
+            font-size: 1.05rem;
+            color: #722F37;
+        }
+
+        .testimonial-card .author span {
+            font-size: 0.85rem;
+            color: #6b6b6b;
+        }
+
+        /* ----- BLOG CARDS ----- */
+        .card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: #ffffff;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .card:hover .card-img-top {
+            transform: scale(1.15);
+        }
+
+        .card-body {
+            padding: 25px 30px;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            color: #2D2D2D;
+        }
+
+        .card:hover .card-title {
+            color: #722F37;
+        }
+
+        .card-text {
+            color: #6b6b6b;
+            font-size: 0.95rem;
+        }
+
+        /* ----- CTA SECTION ----- */
+        .cta-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 40%, #2d0f0f 70%, #722F37 100%);
+            padding: 120px 0;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 40%, rgba(201, 169, 110, 0.05) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 60%, rgba(201, 169, 110, 0.03) 0%, transparent 50%);
+            animation: ctaPulse 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes ctaPulse {
+            0% { transform: translateX(-5%) rotate(-2deg) scale(1); }
+            100% { transform: translateX(5%) rotate(2deg) scale(1.05); }
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+        }
+
+        .cta-section h2 span {
+            background: linear-gradient(135deg, #C9A96E, #f0d080, #dbb87a, #C9A96E);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientFlow 4s ease-in-out infinite;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 560px;
+            margin: 0 auto 40px;
+            line-height: 2;
+            font-weight: 300;
+        }
+
+        .cta-section .btn {
+            padding: 18px 55px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: linear-gradient(145deg, #C9A96E, #dbb87a);
+            color: #1a1a1a;
+            border: none;
+            box-shadow: 0 8px 40px rgba(201, 169, 110, 0.2);
+        }
+
+        .cta-section .btn:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 25px 70px rgba(201, 169, 110, 0.3);
+            color: #1a1a1a;
+        }
+
+        /* ----- FOOTER ----- */
+        .footer {
+            background: #0a0a0a;
+            color: #888;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #C9A96E, #f0d080, #C9A96E, transparent);
+            animation: footerLine 6s ease-in-out infinite;
+        }
+
+        @keyframes footerLine {
+            0%, 100% { opacity: 0.3; transform: scaleX(0.7); }
+            50% { opacity: 1; transform: scaleX(1); }
+        }
+
+        .footer h4 {
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 22px;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 35px;
+            height: 2.5px;
+            background: linear-gradient(90deg, #C9A96E, #f0d080);
+            border-radius: 4px;
+        }
+
+        .footer a {
+            color: #888;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .footer a:hover {
+            color: #C9A96E;
+            transform: translateX(5px);
+        }
+
+        .footer .social-icons {
+            display: flex;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .footer .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.03);
+            color: #ffffff;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-size: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .footer .social-icons a:hover {
+            background: linear-gradient(145deg, #C9A96E, #dbb87a);
+            color: #1a1a1a;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(201, 169, 110, 0.2);
+            border-color: #C9A96E;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.03);
+            padding-top: 30px;
+            margin-top: 48px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .footer-links-bottom a {
+            color: #555;
+            margin: 0 8px;
+        }
+
+        .footer-links-bottom a:hover {
+            color: #C9A96E;
+        }
+
+        /* ----- SCROLL ANIMATIONS ----- */
+        .scroll-3d {
+            opacity: 0;
+            transform: translateY(60px) perspective(1500px) rotateX(15deg);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            perspective: 1500px;
+        }
+
+        .scroll-3d.visible {
+            opacity: 1;
+            transform: translateY(0) perspective(1500px) rotateX(0);
+        }
+
+        .scroll-3d-scale {
+            opacity: 0;
+            transform: scale(0.7) perspective(1500px) rotateZ(10deg);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            perspective: 1500px;
+        }
+
+        .scroll-3d-scale.visible {
+            opacity: 1;
+            transform: scale(1) perspective(1500px) rotateZ(0);
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 4rem; }
+            .hero h1 .line2 { font-size: 4rem; }
+            .hero-stats { gap: 60px; }
+            .section-title { font-size: 2.8rem; }
+            .cta-section h2 { font-size: 2.8rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero h1 .line2 { font-size: 3rem; }
+            .hero h1 .line1 { font-size: 1.5rem; }
+            .hero h1 .decorative-line { font-size: 2rem; }
+            .hero p { font-size: 1.1rem; }
+            .hero-stats { gap: 40px; flex-wrap: wrap; justify-content: center; }
+            .stat-number { font-size: 2.6rem !important; }
+            .section-title { font-size: 2.2rem; }
+            .country-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+            .hero .btn { margin: 8px 6px; padding: 14px 28px; font-size: 0.95rem; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .cta-section h2 { font-size: 2.2rem; }
+            .cta-section p { font-size: 1rem; }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero h1 .line2 { font-size: 2.2rem; }
+            .hero h1 .line1 { font-size: 1.2rem; }
+            .hero h1 .decorative-line { font-size: 1.6rem; }
+            .hero p { font-size: 1rem; }
+            .hero-stats { gap: 25px; }
+            .stat-number { font-size: 2rem !important; }
+            .hero .btn { width: 100%; margin: 6px 0; text-align: center; }
+            .hero-buttons { flex-direction: column; gap: 12px; }
+            .hero-buttons .btn { width: 100%; }
+            .country-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 1.8rem; }
+            .section-subtitle { font-size: 0.95rem; }
+            .cta-section h2 { font-size: 1.8rem; }
+            .cta-section .btn { width: 100%; }
+            .testimonial-card { padding: 24px; }
+        }
+
+        /* ----- CUSTOM SCROLLBAR ----- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f0eb;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #C9A96E, #722F37);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #dbb87a, #5a242a);
+        }
+
+        /* ----- MOUSE TRAILER ----- */
+        .mouse-trailer {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(201, 169, 110, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: radial-gradient(circle, rgba(201, 169, 110, 0.03) 0%, transparent 70%);
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+
+        .mouse-trailer.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* ----- PRELOADER ----- */
+        .page-loader {
+            position: fixed;
+            inset: 0;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .page-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-ring {
+            width: 80px;
+            height: 80px;
+            border: 3px solid rgba(201, 169, 110, 0.05);
+            border-top: 3px solid #C9A96E;
+            border-right: 3px solid #C9A96E;
+            border-radius: 50%;
+            animation: spinLoader 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .loader-ring::before {
+            content: '🍽️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            animation: pulseLoader 1.5s ease-in-out infinite;
+        }
+
+        @keyframes spinLoader {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        @keyframes pulseLoader {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        .loader-text {
+            color: #C9A96E;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            animation: pulseLoader 2s ease-in-out infinite;
+        }
+
+        /* ----- Notification ----- */
+        .custom-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(20px);
+            color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            z-index: 99999;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideUpNotif 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            max-width: 400px;
+            font-family: 'Inter', sans-serif;
+            border: 1px solid rgba(255,255,255,0.05);
+            line-height: 1.6;
+        }
+
+        @keyframes slideUpNotif {
+            0% { transform: translateY(100px) scale(0.8); opacity: 0; }
+            100% { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        @keyframes slideDownNotif {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(100px) scale(0.8); opacity: 0; }
+        }
+
+        /* ===== USER DROPDOWN ===== */
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #C9A96E, #722F37);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-menu {
+            border-radius: 16px;
+            border: none;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+
+        .dropdown-item {
+            padding: 10px 24px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(201, 169, 110, 0.08);
+            color: #722F37;
+        }
+
+        .dropdown-item i {
+            width: 20px;
+            margin-right: 10px;
+            color: #C9A96E;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== PAGE LOADER ===== -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <div class="loader-text">La Belle Vie</div>
+        </div>
+    </div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-utensils"></i> La Belle Vie
+            </a>
+            <button class="navbar-toggler" id="navToggle" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+
+                    <!-- MENU DROPDOWN -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menus
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="menuDropdown">
+                            <li><a class="dropdown-item" href="menu.html">🍽️ Main Menu</a></li>
+                            <li><a class="dropdown-item" href="friends-menu/index.html">🤝 Friends Menu</a></li>
+                            <li><a class="dropdown-item" href="italian-menu/index.html">🇮🇹 Italian Menu</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="specials.html">⭐ Daily Specials</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li class="nav-item"><a href="reservations.html" class="nav-link">Reservations</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+
+                    <!-- CART ICON -->
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link position-relative">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge rounded-pill cart-badge" id="cartCount">0</span>
+                        </a>
+                    </li>
+
+                    <!-- ACCOUNT DROPDOWN - DYNAMIC -->
+                    <li class="nav-item dropdown" id="authDropdownContainer">
+                        <a class="nav-link dropdown-toggle" href="#" id="authDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span id="authIcon"><i class="fas fa-user"></i></span>
+                            <span id="authText">Account</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" id="authMenu">
+                            <!-- Dynamic content -->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <header class="hero" id="hero">
+        <!-- Floating Orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+
+        <!-- Particle System -->
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <div class="container hero-content">
+            <span class="hero-badge">🌟 Fine Dining Since 1985</span>
+            <h1>
+                <span class="line1">Welcome to</span>
+                <span class="line2"><span>La Belle Vie</span></span>
+                <span class="decorative-line">~ Culinary Excellence ~</span>
+            </h1>
+            <p>Experience the finest international cuisine in an elegant atmosphere. Every dish is a masterpiece crafted with passion.</p>
+            <div class="hero-buttons">
+                <a href="reservations.html" class="btn btn-primary">
+                    <i class="fas fa-calendar-check"></i> Reserve a Table
+                </a>
+                <a href="menu.html" class="btn btn-outline-light">
+                    <i class="fas fa-utensils"></i> Explore Menu
+                </a>
+                <a href="gallery.html" class="btn btn-outline-light">
+                    <i class="fas fa-images"></i> View Gallery
+                </a>
+                <button class="btn btn-outline-light" onclick="showSpecialOffer()">
+                    <i class="fas fa-gift"></i> Special Offer
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="35">0</span>
+                    <span class="stat-label">Years of Excellence</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="150">0</span>
+                    <span class="stat-label">Award-Winning Dishes</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="10000">0</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== WORLD CUISINES ===== -->
+    <section class="py-5" style="padding-top: 80px; padding-bottom: 80px;">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="decorative">~ Explore ~</span>
+                World Cuisines
+            </h2>
+            <p class="section-subtitle">Journey through the finest flavors from 10 countries</p>
+
+            <div class="country-grid">
+                <!-- Italy -->
+                <a href="country-menus/italy/index.html" class="country-card scroll-3d-scale">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=250&fit=crop&crop=center" alt="Italian Cuisine">
+                        <div class="card-overlay"><i class="fas fa-utensils"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="flag">🇮🇹</span>
+                        <h3>Italian Cuisine</h3>
+                        <div class="divider"></div>
+                        <p>Pasta, Pizza, Risotto & More</p>
+                        <span class="card-tag">Explore</span>
+                    </div>
+                </a>
+
+                <!-- France -->
+                <a href="country-menus/france/index.html" class="country-card scroll-3d-scale" style="animation-delay:0.05s">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=400&h=250&fit=crop&crop=center" alt="French Cuisine">
+                        <div class="card-overlay"><i class="fas fa-utensils"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="flag">🇫🇷</span>
+                        <h3>French Cuisine</h3>
+                        <div class="divider"></div>
+                        <p>Pastries, Wines & Fine Dining</p>
+                        <span class="card-tag">Explore</span>
+                    </div>
+                </a>
+
+                <!-- Japan -->
+                <a href="country-menus/japan/index.html" class="country-card scroll-3d-scale" style="animation-delay:0.1s">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&h=250&fit=crop&crop=center" alt="Japanese Cuisine">
+                        <div class="card-overlay"><i class="fas fa-utensils"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="flag">🇯🇵</span>
+                        <h3>Japanese Cuisine</h3>
+                        <div class="divider"></div>
+                        <p>Sushi, Ramen, Tempura & More</p>
+                        <span class="card-tag">Explore</span>
+                    </div>
+                </a>
+
+                <!-- India -->
+                <a href="country-menus/india/index.html" class="country-card scroll-3d-scale" style="animation-delay:0.15s">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=250&fit=crop&crop=center" alt="Indian Cuisine">
+                        <div class="card-overlay"><i class="fas fa-utensils"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="flag">🇮🇳</span>
+                        <h3>Indian Cuisine</h3>
+                        <div class="divider"></div>
+                        <p>Curries, Breads, Biryani & More</p>
+                        <span class="card-tag">Explore</span>
+                    </div>
+                </a>
+
+                <!-- Russia -->
+                <a href="country-menus/moscow/index.html" class="country-card scroll-3d-scale" style="animation-delay:0.2s">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=250&fit=crop&crop=center" alt="Russian Cuisine">
+                        <div class="card-overlay"><i class="fas fa-utensils"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="flag">🇷🇺</span>
+                        <h3>Russian Cuisine</h3>
+                        <div class="divider"></div>
+                        <p>Borscht, Pelmeni & More</p>
+                        <span class="card-tag">Explore</span>
+                    </div>
+                </a>
+
+                <!-- Thailand -->
+                <a href="country-menus/thailand/index.html" class="country-card scroll-3d-scale" style="animation-delay:0.25s">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?w=400&h=250&fit=crop&crop=center" alt="Thai Cuisine">
+                        <div class="card-overlay"><i class="fas fa-utensils"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="flag">🇹🇭</span>
+                        <h3>Thai Cuisine</h3>
+                        <div class="divider"></div>
+                        <p>Noodles, Curries, Soups & More</p>
+                        <span class="card-tag">Explore</span>
+                    </div>
+                </a>
+
+                <!-- Greece -->
+                <a href="country-menus/greece/index.html" class="country-card scroll-3d-scale" style="animation-delay:0.3s">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1547573854-74d2a71d0826?w=400&h=250&fit=crop&crop=center" alt="Greek Cuisine">
+                        <div class="card-overlay"><i class="fas fa-utensils"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="flag">🇬🇷</span>
+                        <h3>Greek Cuisine</h3>
+                        <div class="divider"></div>
+                        <p>Meze, Seafood, Salads & More</p>
+                        <span class="card-tag">Explore</span>
+                    </div>
+                </a>
+
+                <!-- Spain -->
+                <a href="country-menus/spain/index.html" class="country-card scroll-3d-scale" style="animation-delay:0.35s">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?w=400&h=250&fit=crop&crop=center" alt="Spanish Cuisine">
+                        <div class="card-overlay"><i class="fas fa-utensils"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="flag">🇪🇸</span>
+                        <h3>Spanish Cuisine</h3>
+                        <div class="divider"></div>
+                        <p>Tapas, Paella, Churros & More</p>
+                        <span class="card-tag">Explore</span>
+                    </div>
+                </a>
+
+                <!-- Turkey -->
+                <a href="country-menus/turkey/index.html" class="country-card scroll-3d-scale" style="animation-delay:0.4s">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=250&fit=crop&crop=center" alt="Turkish Cuisine">
+                        <div class="card-overlay"><i class="fas fa-utensils"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="flag">🇹🇷</span>
+                        <h3>Turkish Cuisine</h3>
+                        <div class="divider"></div>
+                        <p>Kebabs, Meze, Baklava & More</p>
+                        <span class="card-tag">Explore</span>
+                    </div>
+                </a>
+
+                <!-- China -->
+                <a href="country-menus/china/index.html" class="country-card scroll-3d-scale" style="animation-delay:0.45s">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&h=250&fit=crop&crop=center" alt="Chinese Cuisine">
+                        <div class="card-overlay"><i class="fas fa-utensils"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="flag">🇨🇳</span>
+                        <h3>Chinese Cuisine</h3>
+                        <div class="divider"></div>
+                        <p>Noodles, Dumplings, Rice & More</p>
+                        <span class="card-tag">Explore</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="py-5" style="background: #f8f5f2; padding-top: 80px; padding-bottom: 80px;">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="decorative">~ Why Choose ~</span>
+                <span class="highlight">La Belle Vie</span>
+            </h2>
+            <p class="section-subtitle">Experience dining like never before</p>
+            <div class="features-grid">
+                <div class="feature-card scroll-3d">
+                    <div class="icon"><i class="fas fa-utensils"></i></div>
+                    <h4>World-Class Chefs</h4>
+                    <p>Our chefs bring experience from Michelin-starred restaurants across the globe</p>
+                </div>
+                <div class="feature-card scroll-3d" style="animation-delay:0.1s">
+                    <div class="icon"><i class="fas fa-leaf"></i></div>
+                    <h4>Fresh Ingredients</h4>
+                    <p>We source only the finest, locally-sourced, and sustainable ingredients</p>
+                </div>
+                <div class="feature-card scroll-3d" style="animation-delay:0.2s">
+                    <div class="icon"><i class="fas fa-wine-glass-alt"></i></div>
+                    <h4>Exclusive Wine List</h4>
+                    <p>Curated collection of fine wines from around the world</p>
+                </div>
+                <div class="feature-card scroll-3d" style="animation-delay:0.3s">
+                    <div class="icon"><i class="fas fa-star"></i></div>
+                    <h4>Award-Winning Service</h4>
+                    <p>Recognized for exceptional hospitality and memorable dining experiences</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="py-5" style="padding-top: 80px; padding-bottom: 80px;">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="decorative">~ What Our Guests Say ~</span>
+                Testimonials
+            </h2>
+            <p class="section-subtitle">Real experiences from real people</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card scroll-3d">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"An unforgettable dining experience! The food was exquisite and the service impeccable."</p>
+                    <div class="author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=center" alt="Maria S.">
+                        <div>
+                            <strong>Maria S.</strong>
+                            <span>Food Critic</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card scroll-3d" style="animation-delay:0.1s">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The best fine dining experience in the city. The Italian menu is absolutely authentic!"</p>
+                    <div class="author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=center" alt="James R.">
+                        <div>
+                            <strong>James R.</strong>
+                            <span>Regular Guest</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card scroll-3d" style="animation-delay:0.2s">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Amazing ambiance and the wine selection is incredible. Highly recommend the French menu."</p>
+                    <div class="author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=center" alt="Sophie L.">
+                        <div>
+                            <strong>Sophie L.</strong>
+                            <span>Wine Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BLOG SECTION ===== -->
+    <section class="py-5" style="background: #f8f5f2; padding-top: 80px; padding-bottom: 80px;">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="decorative">~ Latest Stories ~</span>
+                From Our Blog
+            </h2>
+            <p class="section-subtitle">Stories from our kitchen</p>
+            <div class="row g-4">
+                <div class="col-md-4 scroll-3d">
+                    <a href="blog/post1.html" class="text-decoration-none">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=250&fit=crop&crop=center" class="card-img-top" alt="The Art of French Cuisine">
+                            <div class="card-body">
+                                <h5 class="card-title">The Art of French Cuisine</h5>
+                                <p class="card-text text-muted">Discover the secrets behind French cooking</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 scroll-3d" style="animation-delay:0.1s">
+                    <a href="blog/post2.html" class="text-decoration-none">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=250&fit=crop&crop=center" class="card-img-top" alt="Chef's Secret Ingredients">
+                            <div class="card-body">
+                                <h5 class="card-title">Chef's Secret Ingredients</h5>
+                                <p class="card-text text-muted">Behind the scenes with Chef Antonio</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 scroll-3d" style="animation-delay:0.2s">
+                    <a href="blog/post3.html" class="text-decoration-none">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&h=250&fit=crop&crop=center" class="card-img-top" alt="Wine Pairing Guide">
+                            <div class="card-body">
+                                <h5 class="card-title">Wine Pairing Guide</h5>
+                                <p class="card-text text-muted">Perfect wine pairings for every dish</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="blog.html" class="btn btn-gold">View All Posts <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready for an <span>Unforgettable</span> Experience?</h2>
+            <p>Book your table now and embark on a culinary journey around the world.</p>
+            <a href="reservations.html" class="btn"><i class="fas fa-calendar-check"></i> Reserve Now</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4><i class="fas fa-utensils"></i> La Belle Vie</h4>
+                    <p>Fine dining restaurant offering the best cuisine from 10 countries around the world.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="specials.html">Specials</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4>Pages</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="reservations.html">Reservations</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for exclusive offers and updates</p>
+                    <form id="newsletterForm" class="d-flex">
+                        <input type="email" class="form-control" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-gold ms-2"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 La Belle Vie. All rights reserved. Crafted with <i class="fas fa-heart" style="color:#C9A96E;"></i></p>
+                <p class="footer-links-bottom">
+                    <a href="privacy.html">Privacy Policy</a> |
+                    <a href="terms.html">Terms &amp; Conditions</a> |
+                    <a href="sitemap.html">Sitemap</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== MOUSE TRAILER ===== -->
+    <div class="mouse-trailer" id="mouseTrailer"></div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            'use strict';
+
+            /* ========================================
+               REMOVE GOOGLE TRANSLATE POPUP
+               ======================================== */
+            function removeTranslatePopup() {
+                // Remove banner frames
+                document.querySelectorAll('.goog-te-banner-frame, .skiptranslate, iframe.goog-te-banner-frame').forEach(el => el.remove());
+
+                // Remove translate dropdown/combobox
+                document.querySelectorAll('.goog-te-gadget, .goog-te-menu-frame, .goog-te-combo').forEach(el => el.remove());
+
+                // Reset body offset
+                document.body.style.top = '0';
+                document.body.style.position = 'static';
+                document.body.style.marginTop = '0';
+
+                // Reset html
+                document.documentElement.style.marginTop = '0';
+            }
+
+            // Run immediately
+            removeTranslatePopup();
+
+            // Run again after delays to catch late-loading elements
+            setTimeout(removeTranslatePopup, 500);
+            setTimeout(removeTranslatePopup, 1500);
+            setTimeout(removeTranslatePopup, 3000);
+
+            // Watch for new elements being added
+            const popupObserver = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    mutation.addedNodes.forEach(function(node) {
+                        if (node.nodeType === 1) {
+                            if (node.classList && (
+                                node.classList.contains('goog-te-banner-frame') ||
+                                node.classList.contains('skiptranslate') ||
+                                node.classList.contains('goog-te-gadget')
+                            )) {
+                                node.remove();
+                                removeTranslatePopup();
+                            }
+                        }
+                    });
+                });
+            });
+
+            if (document.body) {
+                popupObserver.observe(document.body, { childList: true, subtree: true });
+            }
+
+            /* ========================================
+               PAGE LOADER
+               ======================================== */
+            const loader = document.getElementById('pageLoader');
+            if (loader) {
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                }, 1500);
+            }
+
+            /* ========================================
+               AUTH SYSTEM
+               ======================================== */
+            const authMenu = document.getElementById('authMenu');
+            const authIcon = document.getElementById('authIcon');
+            const authText = document.getElementById('authText');
+
+            function updateAuthUI() {
+                let user = null;
+                try {
+                    user = JSON.parse(localStorage.getItem('user'));
+                } catch (e) {
+                    user = null;
+                }
+
+                if (user && user.full_name) {
+                    const initials = user.full_name.split(' ').map(n => n[0]).join('').toUpperCase();
+                    authIcon.innerHTML = `<span class="user-avatar">${initials}</span>`;
+                    authText.textContent = user.full_name;
+
+                    authMenu.innerHTML = `
+                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                        <li><a class="dropdown-item" href="orders.html"><i class="fas fa-list"></i> My Orders</a></li>
+                        <li><a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#" onclick="logoutUser(); return false;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    `;
+                } else {
+                    authIcon.innerHTML = `<i class="fas fa-user"></i>`;
+                    authText.textContent = 'Account';
+
+                    authMenu.innerHTML = `
+                        <li><a class="dropdown-item" href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li><a class="dropdown-item" href="register.html"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                    `;
+                }
+            }
+
+            /* ========================================
+               LOGOUT
+               ======================================== */
+            window.logoutUser = function() {
+                localStorage.removeItem('user');
+                updateAuthUI();
+                showNotification('👋 Logged out successfully');
+                setTimeout(() => location.reload(), 800);
+            };
+
+            /* ========================================
+               CART COUNT
+               ======================================== */
+            function updateCartCount() {
+                let cart = [];
+                try {
+                    cart = JSON.parse(localStorage.getItem('cart')) || [];
+                } catch (e) {
+                    cart = [];
+                }
+                const count = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+                document.querySelectorAll('#cartCount, .cart-badge').forEach(badge => {
+                    if (badge) badge.textContent = count;
+                });
+            }
+
+            /* ========================================
+               SPECIAL OFFER
+               ======================================== */
+            window.showSpecialOffer = function() {
+                const offers = [
+                    '🎉 15% OFF on your first reservation!',
+                    '🍾 Free Champagne for table bookings of 4+',
+                    '🍰 Complimentary Dessert with every main course',
+                    '✨ 20% OFF on Italian Menu this weekend',
+                    '🥂 Early Bird Special: 30% OFF before 7 PM'
+                ];
+                const random = offers[Math.floor(Math.random() * offers.length)];
+                showNotification('🎁 Special Offer: ' + random + '\n\nShow this at the restaurant!');
+            };
+
+            /* ========================================
+               NOTIFICATION SYSTEM
+               ======================================== */
+            window.showNotification = function(message) {
+                document.querySelectorAll('.custom-notification').forEach(el => el.remove());
+
+                const div = document.createElement('div');
+                div.className = 'custom-notification';
+                div.textContent = message;
+                document.body.appendChild(div);
+
+                setTimeout(() => {
+                    div.style.animation = 'slideDownNotif 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                    setTimeout(() => div.remove(), 600);
+                }, 4500);
+            };
+
+            /* ========================================
+               SCROLL REVEAL
+               ======================================== */
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.scroll-3d, .scroll-3d-scale')
+                    .forEach(el => observer.observe(el));
+            } else {
+                document.querySelectorAll('.scroll-3d, .scroll-3d-scale')
+                    .forEach(el => el.classList.add('visible'));
+            }
+
+            /* ========================================
+               COUNTER ANIMATION
+               ======================================== */
+            const counters = document.querySelectorAll('.stat-number');
+
+            function animateCounter(element) {
+                const target = parseInt(element.getAttribute('data-count'), 10);
+                if (isNaN(target)) return;
+                const duration = 2500;
+                const startTime = performance.now();
+
+                function updateCounter(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.round(eased * target);
+
+                    element.textContent = current.toLocaleString();
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        element.textContent = target.toLocaleString();
+                    }
+                }
+
+                requestAnimationFrame(updateCounter);
+            }
+
+            if ('IntersectionObserver' in window) {
+                const counterObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounter(entry.target);
+                            counterObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                counters.forEach(el => counterObserver.observe(el));
+            } else {
+                counters.forEach(el => animateCounter(el));
+            }
+
+            /* ========================================
+               PARALLAX HERO
+               ======================================== */
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                let ticking = false;
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            const scrolled = window.pageYOffset;
+                            if (scrolled < 600) {
+                                const content = hero.querySelector('.hero-content');
+                                if (content) {
+                                    content.style.transform = `translateY(${scrolled * 0.1}px)`;
+                                    content.style.opacity = 1 - (scrolled / 700);
+                                }
+                            }
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            /* ========================================
+               NAVBAR SCROLL
+               ======================================== */
+            const navbar = document.getElementById('navbar');
+            let navTicking = false;
+            window.addEventListener('scroll', function() {
+                if (!navTicking) {
+                    window.requestAnimationFrame(function() {
+                        if (window.pageYOffset > 50) {
+                            navbar.classList.add('scrolled');
+                        } else {
+                            navbar.classList.remove('scrolled');
+                        }
+                        navTicking = false;
+                    });
+                    navTicking = true;
+                }
+            }, { passive: true });
+
+            /* ========================================
+               MOUSE TRAILER
+               ======================================== */
+            const trailer = document.getElementById('mouseTrailer');
+            let mouseX = 0, mouseY = 0;
+            let trailerX = 0, trailerY = 0;
+
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                if (trailer) trailer.classList.add('active');
+            });
+
+            function animateTrailer() {
+                trailerX += (mouseX - trailerX) * 0.15;
+                trailerY += (mouseY - trailerY) * 0.15;
+                if (trailer) {
+                    trailer.style.left = trailerX + 'px';
+                    trailer.style.top = trailerY + 'px';
+                }
+                requestAnimationFrame(animateTrailer);
+            }
+
+            if (trailer && !('ontouchstart' in window)) {
+                animateTrailer();
+            } else if (trailer) {
+                trailer.style.display = 'none';
+            }
+
+            /* ========================================
+               NEWSLETTER
+               ======================================== */
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const input = this.querySelector('input[type="email"]');
+                    if (input && input.value.trim() !== '') {
+                        input.value = '';
+                        input.placeholder = '✓ Subscribed!';
+                        showNotification('✨ Thank you for subscribing to La Belle Vie!');
+                        setTimeout(() => {
+                            input.placeholder = 'Your email';
+                        }, 2500);
+                    }
+                });
+            }
+
+            /* ========================================
+               INITIALIZE
+               ======================================== */
+            updateAuthUI();
+            updateCartCount();
+
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'cart') {
+                    updateCartCount();
+                }
+                if (e.key === 'user') {
+                    updateAuthUI();
+                }
+            });
+
+            console.log('%c🍽️ La Belle Vie — Premium Home Page Loaded',
+                'color:#C9A96E;font-weight:700;font-size:12px;');
+            console.log('%c✨ Google Translate popup removed | All animations active',
+                'color:#722F37;font-weight:600;font-size:11px;');
+        });
+    </script>
+</body>
+</html>

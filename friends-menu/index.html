@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends Menu - La Belle Vie</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Image adjustment only -->
+    <style>
+        .card-img-top {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="page-friends">
+
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container">
+
+            <a href="../index.html" class="nav-logo">
+                <i class="fas fa-utensils"></i> La Belle Vie
+            </a>
+
+            <button class="navbar-toggler" id="navToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../about.html" class="nav-link">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../menu.html" class="nav-link active">Menu</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../specials.html" class="nav-link">Specials</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../events.html" class="nav-link">Events</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../gallery.html" class="nav-link">Gallery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../reservations.html" class="nav-link">Reservations</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../contact.html" class="nav-link">Contact</a>
+                    </li>
+
+                    <!-- Our Menus -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="menuDropdown"
+                           role="button"
+                           data-bs-toggle="dropdown">
+                            Our Menus
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="menu.html">
+                                    Main Menu
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="friends-menu/index.html">
+                                    Friends Menu
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="specials.html">
+                                    Daily Specials
+                                </a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="italian-menu/index.html">
+                                    Italian Menu
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="country-hero"
+        style="background: linear-gradient(135deg, #fd79a8 0%, #6c5ce7 100%); padding:80px 0 60px; color:white;">
+
+        <div class="container">
+
+            <span class="flag-big scroll-3d">🤝</span>
+
+            <h1 class="scroll-3d">
+                Friends Menu
+            </h1>
+
+            <p class="scroll-3d">
+                Designed for sharing and creating memorable moments with your friends
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- Friends Menu Cards -->
+    <section class="py-5">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+
+                <!-- Chef's Specials -->
+                <div class="col-md-6 col-lg-4 scroll-3d">
+
+                    <a href="chefs-specials.html" class="text-decoration-none">
+
+                        <div class="card hover-3d shadow-sm">
+
+                            <img
+                                src="https://boldoutline.in/wp-content/uploads/2023/10/Web-cover-4.jpg"
+                                class="card-img-top"
+                                alt="Chef's Specials">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    👨‍🍳 Chef's Specials
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Exclusive creations by our executive chef
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Friends' Favorites -->
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.05s">
+
+                    <a href="friends-favorites.html"
+                       class="text-decoration-none">
+
+                        <div class="card hover-3d shadow-sm">
+
+                            <img
+                                src="https://blog.wethechefs.in/wp-content/uploads/2025/01/Party-Food-Delivery-Online-950x500.jpg"
+                                class="card-img-top"
+                                alt="Friends' Favorites">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    ⭐ Friends' Favorites
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Most loved dishes by our guests
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Group Dining -->
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.1s">
+
+                    <a href="group-dining.html"
+                       class="text-decoration-none">
+
+                        <div class="card hover-3d shadow-sm">
+
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpi1QX013dUwQahjfORf_S4GpyUGvXw1hFUQq-zrg1HkiBM0zb03BEYMdG&s=10"
+                                class="card-img-top"
+                                alt="Group Dining">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    👥 Group Dining
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Perfect menus for groups of 6+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Sharing Platters -->
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.15s">
+
+                    <a href="sharing-platters.html"
+                       class="text-decoration-none">
+
+                        <div class="card hover-3d shadow-sm">
+
+                            <img
+                                src="https://cdn.loveandlemons.com/wp-content/uploads/2022/08/mezze-platter-1.jpg"
+                                class="card-img-top"
+                                alt="Sharing Platters">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🍽️ Sharing Platters
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Generous platters to share with friends
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Tapas Style -->
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.2s">
+
+                    <a href="tapas-style.html"
+                       class="text-decoration-none">
+
+                        <div class="card hover-3d shadow-sm">
+
+                            <img
+                                src="https://media.hellofresh.com/q_100,w_3840,f_auto,c_limit,fl_lossy/recipes/image/67ceb3f56a498293bec85b0e-f7130eff.jpeg"
+                                class="card-img-top"
+                                alt="Tapas Style">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🥘 Tapas Style
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Small plates for sharing and tasting
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Family Style -->
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.25s">
+
+                    <a href="family-style.html"
+                       class="text-decoration-none">
+
+                        <div class="card hover-3d shadow-sm">
+
+                            <img
+                                src="https://www.restaurantware.com/cdn/shop/files/Blog-what-is-family-style-dining-1.png"
+                                class="card-img-top"
+                                alt="Family Style">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🏠 Family Style
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Comfort food served family-style
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Weekend Brunch -->
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.3s">
+
+                    <a href="weekend-brunch.html"
+                       class="text-decoration-none">
+
+                        <div class="card hover-3d shadow-sm">
+
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNlC4biaOS67npH6AstiIy02S3C-YNIBHB9boRMipajm161S2LqLG0F7f_&s=10"
+                                class="card-img-top"
+                                alt="Weekend Brunch">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    ☀️ Weekend Brunch
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Relaxing brunch with friends
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Late Night Bites -->
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.35s">
+
+                    <a href="late-night-bites.html"
+                       class="text-decoration-none">
+
+                        <div class="card hover-3d shadow-sm">
+
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVNb9LWOOYnbWeoeZLZ0MG-_K5SwYEeKA_flcKZ-EpAVf2DulhtqFcxeCi&s=10"
+                                class="card-img-top"
+                                alt="Late Night Bites">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🌙 Late Night Bites
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Perfect late-night snacks
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Happy Hour -->
+                <div class="col-md-6 col-lg-4 scroll-3d"
+                     style="animation-delay:0.4s">
+
+                    <a href="happy-hour.html"
+                       class="text-decoration-none">
+
+                        <div class="card hover-3d shadow-sm">
+
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQFs7rFrTowljAgFzCGPO7OQK1dWJnPeY43Nga5T0_jOcrt5haZolNN8w&s=10"
+                                class="card-img-top"
+                                alt="Happy Hour">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title"
+                                    style="font-family:'Playfair Display',serif;">
+                                    🍹 Happy Hour
+                                </h5>
+
+                                <p class="card-text text-muted">
+                                    Drinks and bites at great prices
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row">
+
+
+                <!-- About -->
+                <div class="col-lg-4 mb-4">
+
+                    <h4>
+                        <i class="fas fa-utensils"></i>
+                        La Belle Vie
+                    </h4>
+
+                    <p>
+                        Fine dining restaurant offering the best cuisine
+                        from 10 countries around the world.
+                    </p>
+
+                    <div class="social-icons">
+
+                        <a href="#">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+
+                    <h4>Quick Links</h4>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="../about.html">About</a>
+                        </li>
+
+                        <li>
+                            <a href="../menu.html">Menu</a>
+                        </li>
+
+                        <li>
+                            <a href="../specials.html">Specials</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Pages -->
+                <div class="col-lg-2 col-md-6 mb-4">
+
+                    <h4>Pages</h4>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+                            <a href="../events.html">Events</a>
+                        </li>
+
+                        <li>
+                            <a href="../gallery.html">Gallery</a>
+                        </li>
+
+                        <li>
+                            <a href="../reservations.html">Reservations</a>
+                        </li>
+
+                        <li>
+                            <a href="../contact.html">Contact</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Newsletter -->
+                <div class="col-lg-4 mb-4">
+
+                    <h4>Newsletter</h4>
+
+                    <p>
+                        Subscribe for exclusive offers and updates
+                    </p>
+
+                    <form id="newsletterForm" class="d-flex">
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            placeholder="Your email"
+                            required>
+
+                        <button
+                            type="submit"
+                            class="btn btn-gold ms-2">
+
+                            <i class="fas fa-paper-plane"></i>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; 2026 La Belle Vie.
+                    All rights reserved.
+                    Crafted with
+                    <i class="fas fa-heart"
+                       style="color:#C9A96E;">
+                    </i>
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../js/script.js"></script>
+
+</body>
+</html>

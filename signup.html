@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - La Belle Vie</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* ===== PREMIUM SIGNUP PAGE STYLES ===== */
+
+        .auth-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 40%, #2d0f0f 70%, #722F37 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-page::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80') center/cover;
+            opacity: 0.06;
+            animation: heroZoomSlow 30s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoomSlow {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+
+        .auth-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .auth-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(201, 169, 110, 0.15);
+            border-radius: 50%;
+            animation: floatParticle 20s infinite linear;
+        }
+
+        .auth-particle:nth-child(1) { left: 10%; animation-duration: 25s; animation-delay: 0s; }
+        .auth-particle:nth-child(2) { left: 30%; animation-duration: 30s; animation-delay: 3s; width: 6px; height: 6px; }
+        .auth-particle:nth-child(3) { left: 50%; animation-duration: 22s; animation-delay: 5s; }
+        .auth-particle:nth-child(4) { left: 70%; animation-duration: 28s; animation-delay: 1s; width: 8px; height: 8px; }
+        .auth-particle:nth-child(5) { left: 90%; animation-duration: 18s; animation-delay: 7s; }
+        .auth-particle:nth-child(6) { left: 20%; animation-duration: 32s; animation-delay: 2s; width: 5px; height: 5px; }
+        .auth-particle:nth-child(7) { left: 60%; animation-duration: 24s; animation-delay: 4s; }
+        .auth-particle:nth-child(8) { left: 80%; animation-duration: 20s; animation-delay: 6s; width: 7px; height: 7px; }
+
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(720deg) scale(1.5); opacity: 0; }
+        }
+
+        .auth-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.08;
+            pointer-events: none;
+            animation: orbFloat 15s ease-in-out infinite alternate;
+        }
+
+        .auth-orb-1 {
+            width: 400px;
+            height: 400px;
+            background: #C9A96E;
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .auth-orb-2 {
+            width: 300px;
+            height: 300px;
+            background: #722F37;
+            bottom: -50px;
+            left: -50px;
+            animation-delay: -5s;
+        }
+
+        @keyframes orbFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -30px) scale(1.1); }
+            66% { transform: translate(-30px, 50px) scale(0.9); }
+            100% { transform: translate(20px, 20px) scale(1.05); }
+        }
+
+        .auth-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            animation: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            z-index: 3;
+            border: 1px solid rgba(201, 169, 110, 0.1);
+            max-height: 95vh;
+            overflow-y: auto;
+        }
+
+        .auth-card::-webkit-scrollbar { width: 4px; }
+        .auth-card::-webkit-scrollbar-thumb { background: #C9A96E; border-radius: 4px; }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(60px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .auth-card .logo {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .auth-card .logo h2 {
+            font-family: 'Playfair Display', serif;
+            color: #722F37;
+            font-size: 2rem;
+            transition: all 0.5s ease;
+        }
+
+        .auth-card .logo h2 i {
+            color: #C9A96E;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .auth-card .logo h2:hover i {
+            transform: rotate(-20deg) scale(1.15);
+        }
+
+        .auth-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: #2D2D2D;
+            margin-bottom: 0.3rem;
+            font-size: 1.8rem;
+        }
+
+        .auth-card .subtitle {
+            color: #6b6b6b;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .auth-card .form-control {
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid #e8e0d8;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            background: #faf8f6;
+        }
+
+        .auth-card .form-control:focus {
+            border-color: #C9A96E;
+            box-shadow: 0 0 0 4px rgba(201, 169, 110, 0.1);
+            background: #ffffff;
+        }
+
+        .auth-card .form-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #2D2D2D;
+            margin-bottom: 0.3rem;
+        }
+
+        .auth-card .btn-gold {
+            width: 100%;
+            padding: 0.9rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            background: linear-gradient(145deg, #C9A96E, #dbb87a);
+            color: #1a1a1a;
+            border: none;
+            box-shadow: 0 4px 20px rgba(201, 169, 110, 0.3);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-card .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .auth-card .btn-gold:hover::before {
+            opacity: 1;
+        }
+
+        .auth-card .btn-gold:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(201, 169, 110, 0.4);
+        }
+
+        .auth-card .auth-switch {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #6b6b6b;
+            font-size: 0.95rem;
+        }
+
+        .auth-card .auth-switch a {
+            color: #722F37;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .auth-card .auth-switch a:hover {
+            color: #C9A96E;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+            display: none;
+            padding: 8px 14px;
+            background: rgba(220, 53, 69, 0.08);
+            border-radius: 8px;
+        }
+
+        .success-message {
+            color: #28a745;
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+            display: none;
+            padding: 8px 14px;
+            background: rgba(40, 167, 69, 0.08);
+            border-radius: 8px;
+        }
+
+        .password-requirements {
+            font-size: 0.75rem;
+            color: #6b6b6b;
+            margin-top: 0.3rem;
+        }
+
+        .password-requirements ul {
+            padding-left: 1.2rem;
+            margin: 0.2rem 0;
+        }
+
+        .password-requirements li {
+            list-style: none;
+            transition: all 0.3s;
+        }
+
+        .password-requirements li.valid { color: #28a745; }
+        .password-requirements li.invalid { color: #dc3545; }
+
+        .back-home {
+            text-align: center;
+            margin-top: 1.2rem;
+        }
+
+        .back-home a {
+            color: #6b6b6b;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-home a:hover {
+            color: #722F37;
+        }
+
+        .terms-text {
+            font-size: 0.75rem;
+            color: #6b6b6b;
+            text-align: center;
+            margin-top: 0.8rem;
+        }
+
+        .terms-text a {
+            color: #722F37;
+            text-decoration: none;
+        }
+
+        .terms-text a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-gold.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .btn-gold .spinner {
+            display: none;
+            margin-right: 8px;
+            animation: spin 1s linear infinite;
+        }
+
+        .btn-gold.loading .spinner {
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 576px) {
+            .auth-card { padding: 1.5rem; }
+            .auth-card .logo h2 { font-size: 1.5rem; }
+            .auth-card h3 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-particles">
+            <div class="auth-particle"></div>
+            <div class="auth-particle"></div>
+            <div class="auth-particle"></div>
+            <div class="auth-particle"></div>
+            <div class="auth-particle"></div>
+            <div class="auth-particle"></div>
+            <div class="auth-particle"></div>
+            <div class="auth-particle"></div>
+        </div>
+
+        <div class="auth-orb auth-orb-1"></div>
+        <div class="auth-orb auth-orb-2"></div>
+
+        <div class="auth-card">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none;">
+                    <h2><i class="fas fa-utensils"></i> La Belle Vie</h2>
+                </a>
+            </div>
+
+            <h3>Create Account</h3>
+            <p class="subtitle">Join us for an exceptional dining experience</p>
+
+            <form id="signupForm">
+                <div class="mb-3">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" required placeholder="Sakshi Maurya">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" required placeholder="panjiyarkrishu48@.com">
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="+911234567891">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" required placeholder="Min 6 characters">
+                    <div class="password-requirements">
+                        <ul>
+                            <li id="lengthReq" class="invalid">✗ At least 6 characters</li>
+                            <li id="upperReq" class="invalid">✗ At least one uppercase letter</li>
+                            <li id="lowerReq" class="invalid">✗ At least one lowercase letter</li>
+                            <li id="numberReq" class="invalid">✗ At least one number</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" required placeholder="Confirm your password">
+                </div>
+
+                <div id="signupError" class="error-message"></div>
+                <div id="signupSuccess" class="success-message"></div>
+
+                <button type="submit" class="btn btn-gold" id="signupBtn">
+                    <span class="spinner"><i class="fas fa-spinner"></i></span>
+                    <span class="btn-text"><i class="fas fa-user-plus"></i> Create Account</span>
+                </button>
+            </form>
+
+            <p class="auth-switch">
+                Already have an account? <a href="login.html">Sign In</a>
+            </p>
+
+            <p class="terms-text">
+                By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+            </p>
+
+            <div class="back-home">
+                <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        // Password validation
+        const password = document.getElementById('password');
+
+        password.addEventListener('input', function() {
+            const val = this.value;
+            const checks = {
+                length: val.length >= 6,
+                upper: /[A-Z]/.test(val),
+                lower: /[a-z]/.test(val),
+                number: /[0-9]/.test(val)
+            };
+
+            document.getElementById('lengthReq').className = checks.length ? 'valid' : 'invalid';
+            document.getElementById('lengthReq').textContent = checks.length ? '✓ At least 6 characters' : '✗ At least 6 characters';
+
+            document.getElementById('upperReq').className = checks.upper ? 'valid' : 'invalid';
+            document.getElementById('upperReq').textContent = checks.upper ? '✓ At least one uppercase letter' : '✗ At least one uppercase letter';
+
+            document.getElementById('lowerReq').className = checks.lower ? 'valid' : 'invalid';
+            document.getElementById('lowerReq').textContent = checks.lower ? '✓ At least one lowercase letter' : '✗ At least one lowercase letter';
+
+            document.getElementById('numberReq').className = checks.number ? 'valid' : 'invalid';
+            document.getElementById('numberReq').textContent = checks.number ? '✓ At least one number' : '✗ At least one number';
+        });
+
+        // Signup Form Handler
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirm = document.getElementById('confirmPassword').value;
+            const errorDiv = document.getElementById('signupError');
+            const successDiv = document.getElementById('signupSuccess');
+            const btn = document.getElementById('signupBtn');
+
+            // Validate passwords match
+            if (password !== confirm) {
+                errorDiv.textContent = 'Passwords do not match';
+                errorDiv.style.display = 'block';
+                successDiv.style.display = 'none';
+                return;
+            }
+
+            // Validate password length
+            if (password.length < 6) {
+                errorDiv.textContent = 'Password must be at least 6 characters';
+                errorDiv.style.display = 'block';
+                successDiv.style.display = 'none';
+                return;
+            }
+
+            // Show loading state
+            btn.classList.add('loading');
+            errorDiv.style.display = 'none';
+            successDiv.style.display = 'none';
+
+            // Simulate signup (replace with Firebase auth)
+            setTimeout(() => {
+                successDiv.textContent = 'Account created successfully! Redirecting...';
+                successDiv.style.display = 'block';
+
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

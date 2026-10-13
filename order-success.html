@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmed - La Belle Vie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f5f2;
+            min-height: 100vh;
+            padding: 60px 0;
+        }
+        .container-narrow { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+        .check-icon {
+            width: 90px; height: 90px; border-radius: 50%;
+            background: linear-gradient(145deg, #27ae60, #1e8c4c);
+            color: #fff; font-size: 2.5rem;
+            display: inline-flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+            animation: pop 0.6s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        @keyframes pop { 0% {transform:scale(0);} 60% {transform:scale(1.15);} 100% {transform:scale(1);} }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; text-align: center; }
+        h1 span { color: #722F37; }
+        .bill-card {
+            background: #fff; border-radius: 20px; padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08); margin-top: 30px;
+        }
+        .bill-head {
+            text-align: center; padding-bottom: 20px;
+            border-bottom: 2px dashed #C9A96E; margin-bottom: 25px;
+        }
+        .bill-head h2 { font-family: 'Playfair Display', serif; color: #722F37; font-weight: 900; }
+        .bill-head p { color: #999; font-size: 0.9rem; margin: 3px 0; }
+        .bill-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0ebe4; }
+        .total-row { display: flex; justify-content: space-between; padding: 8px 0; color: #555; }
+        .total-row.grand {
+            font-size: 1.3rem; font-weight: 800; color: #722F37;
+            padding-top: 15px; border-top: 2px solid #722F37; margin-top: 10px;
+        }
+        .btn-gold {
+            background: linear-gradient(145deg, #C9A96E, #dbb87a);
+            color: #1a1a1a; padding: 14px 28px; border-radius: 50px;
+            font-weight: 700; text-decoration: none; display: inline-block;
+            border: none; cursor: pointer; margin-top: 20px;
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(201,169,110,0.4); color: #1a1a1a; }
+    </style>
+</head>
+<body>
+    <div class="container-narrow">
+        <div style="text-align:center;">
+            <div class="check-icon"><i class="fas fa-check"></i></div>
+            <h1>Order <span>Confirmed!</span></h1>
+            <p style="color:#6b6b6b;">Thank you for dining with La Belle Vie</p>
+        </div>
+
+        <div class="bill-card" id="billCard">
+            <p style="text-align:center;color:#999;">Loading order details…</p>
+        </div>
+    </div>
+
+    <script>
+    (async function () {
+        const params = new URLSearchParams(window.location.search);
+        const orderNumber = params.get('order');
+
+        if (!orderNumber) {
+            document.getElementById('billCard').innerHTML =
+                '<p style="text-align:center;color:#e74c3c;">No order found.</p>';
+            return;
+        }
+
+        // Since your checkout.php already returns the full order,
+        // we'll just show the confirmation page. If you want the full bill
+        // on reload, create api/get_order.php (optional).
+        document.getElementById('billCard').innerHTML = `
+            <div class="bill-head">
+                <h2>🧾 La Belle Vie</h2>
+                <p>Fine Dining Restaurant</p>
+                <p><i class="fas fa-receipt"></i> Order #${orderNumber}</p>
+                <p><i class="far fa-calendar-alt"></i> ${new Date().toLocaleString()}</p>
+            </div>
+            <div style="text-align:center;padding:20px 0;">
+                <i class="fas fa-heart" style="color:#C9A96E;font-size:2rem;margin-bottom:15px;"></i>
+                <h3 style="font-family:'Playfair Display',serif;">Order placed successfully!</h3>
+                <p style="color:#6b6b6b;">Your order has been confirmed and saved to our system.</p>
+            </div>
+            <div style="text-align:center;">
+                <button class="btn-gold" onclick="window.print()">
+                    <i class="fas fa-print"></i> Print Receipt
+                </button>
+                <a href="menu.html" class="btn-gold" style="background:transparent;border:2px solid #C9A96E;color:#722F37;margin-left:10px;">
+                    <i class="fas fa-utensils"></i> Order More
+                </a>
+            </div>
+        `;
+    })();
+    </script>
+</body>
+</html>
